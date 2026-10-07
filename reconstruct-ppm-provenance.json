@@ -1,0 +1,216 @@
+{
+  "recordedAt": "2026-10-07T19:18:54.371822+00:00",
+  "purpose": "Final reference outputs for first-species PPM reconstruction and the distinct larger Sod mesh",
+  "testdataBaseCommit": "c570ae2aad5000d2d882f0cd70f3090ff8401d3d",
+  "octotiger": {
+    "repository": "https://github.com/STEllAR-GROUP/octotiger",
+    "commit": "390f46ae8f239b0176a553068855da2ca01dc60a",
+    "baseCommit": "d80d0bc4d2bc4fe12a0fc6e5ce3460ff4d4fec1f",
+    "trackedSourceDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "radiationTransport": "removed",
+    "equilibriumBlackbodyIPREOS": "retained"
+  },
+  "stack": {
+    "hpx": {
+      "commit": "2b2018189ab8ffd190c7ad04fd4da5534286726b",
+      "version": "v2.0.0-rc1",
+      "localPatchBytes": 17831,
+      "localPatchSha256": "84e55e019bb254ed2646df88bbff8d22bc24d0005c8f6d1288e90c0d8f190c24"
+    },
+    "kokkos": {
+      "commit": "8e15454876298832f013ebcaf08d53825b5bda40",
+      "version": "5.2.2",
+      "localPatchBytes": 0,
+      "localPatchSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cppuddle": {
+      "commit": "5d189e5b910d03901b358ffa5c2539e2e71edb06",
+      "version": "v0.4.0",
+      "localPatchBytes": 1154,
+      "localPatchSha256": "ef75ccefa632a96c590023a7592b4e4a5611196013839dcaeef79373b52ae8fa",
+      "versionNote": "Tag v0.4.0; package CMake reports 0.3.1."
+    },
+    "hpx-kokkos": {
+      "commit": "5b794d0b9ca10fb1eecc950d49992abfa7fb609c",
+      "version": "5b794d0",
+      "localPatchBytes": 885,
+      "localPatchSha256": "1514a7e3d3e37a38c4c39e033cf57b90eff34c917d1562dfade818004da926a9"
+    },
+    "vc": {
+      "commit": "288454deb621be1fa71d2e85cc0d81f3ee7056ea",
+      "version": "1.4.5",
+      "localPatchBytes": 0,
+      "localPatchSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "silo": {
+      "commit": "f05c5a8e6c22b784b7f5eb958d50218cae873d07",
+      "version": "4.12.1",
+      "localPatchBytes": 0,
+      "localPatchSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdexec": {
+      "commit": "04de75de5807e73a229acf047c6976575e313359",
+      "version": "HPX pinned FetchContent plus the local HPX bundled compatibility patch"
+    }
+  },
+  "toolchains": {
+    "gcc": "GCC 13.3.0 host, NVCC 12.8.93 CUDA",
+    "clang": "Clang 21.1.8 host and CUDA, CUDA 12.8 toolkit"
+  },
+  "buildSettings": {
+    "configuration": "Release",
+    "CXX_STANDARD": 20,
+    "INX": 8,
+    "hostArchitecture": "-march=native",
+    "cudaArchitecture": "sm_86",
+    "KokkosBackends": [
+      "Serial",
+      "HPX",
+      "CUDA"
+    ],
+    "nativeCUDA": true,
+    "FAST_FP_CONTRACT": false,
+    "hydroTasks": 1,
+    "monopoleTasks": 1,
+    "multipoleTasks": 1
+  },
+  "commandVariables": {
+    "OCTO_SRC": "Octotiger checkout at the recorded commit",
+    "OCTO_BUILD": "build directory for the selected compiler",
+    "TESTDATA": "this testdata checkout",
+    "RUN_DIR": "new, empty directory per scenario/backend/compiler"
+  },
+  "files": {
+    "rotating_star_without_am.silo": {
+      "sha256": "fc10767774c0b9c182517c811239d912b8c016a12846f269ad43104a4b5224aa",
+      "bytes": 29576216,
+      "generator": "clang LEGACY",
+      "executableSha256": "debc94e9a57789c5a9fc77393b7799c09be64ae8dc495b4545fbe4234ee4fd19",
+      "generationStartedAt": "2026-10-07T19:00:15.992371+00:00",
+      "generationEndedAt": "2026-10-07T19:02:01.546022+00:00",
+      "configPath": "test_problems/rotating_star/rotating_star.ini",
+      "configSha256": "1c5607fea0c896bcc5e23941d3b55623062145b2465792fa381b838caf9f563f",
+      "configContents": "problem=rotating_star\nxscale=1.5\nodt=0.1\nstop_time=0.1\nmax_level=3\ninput_file=rotating_star.bin\nn_species=5\ndisable_diagnostics=on",
+      "workingDirectory": "${RUN_DIR}",
+      "commands": [
+        [
+          "${OCTO_BUILD}/tools/gen_rotating_star_init"
+        ],
+        [
+          "${OCTO_BUILD}/octotiger",
+          "--hpx:threads=2",
+          "--hpx:bind=none",
+          "--config_file=${OCTO_SRC}/test_problems/rotating_star/rotating_star.ini",
+          "--monopole_host_kernel_type=LEGACY",
+          "--monopole_device_kernel_type=OFF",
+          "--multipole_host_kernel_type=LEGACY",
+          "--multipole_device_kernel_type=OFF",
+          "--hydro_host_kernel_type=LEGACY",
+          "--hydro_device_kernel_type=OFF"
+        ]
+      ],
+      "outputToCopy": "${RUN_DIR}/final.silo.data/0.silo",
+      "copyDestination": "${TESTDATA}/rotating_star_without_am.silo",
+      "previousLocalCandidateSha256": "15e8fcd1daae71dc8333ead7c2d514067f354889b9f0777331251f365c0dc2e9",
+      "gccValidationExecutableSha256": "1b5aa559b466a2b4dcb0379e50cee51d414f664e5874e03af98b85b0a528834a"
+    },
+    "sod_big_without_am.silo": {
+      "sha256": "1812fa308080069b511c6e7e05336633637748f916818eb11f6d866771e59fb5",
+      "bytes": 24763400,
+      "generator": "clang LEGACY",
+      "executableSha256": "debc94e9a57789c5a9fc77393b7799c09be64ae8dc495b4545fbe4234ee4fd19",
+      "generationStartedAt": "2026-10-07T18:58:20.615261+00:00",
+      "generationEndedAt": "2026-10-07T18:59:10.726034+00:00",
+      "configPath": "test_problems/sod/sod_big.ini",
+      "configSha256": "afacd8008addf424c0472861805e373f73de8c11360abc6d29cacaa07eb81210",
+      "configContents": "problem=sod\nodt=0.02\nstop_time=0.021\ngravity=off\nmax_level=3\ndisable_diagnostics=on\nxscale=0.5\n#correct_am_hydro=off\n#reflect_bc=on\n#restart_filename=X.248.silo\n#unigrid=1",
+      "workingDirectory": "${RUN_DIR}",
+      "commands": [
+        [
+          "${OCTO_BUILD}/octotiger",
+          "--hpx:threads=2",
+          "--hpx:bind=none",
+          "--config_file=${OCTO_SRC}/test_problems/sod/sod_big.ini",
+          "--monopole_host_kernel_type=LEGACY",
+          "--monopole_device_kernel_type=OFF",
+          "--multipole_host_kernel_type=LEGACY",
+          "--multipole_device_kernel_type=OFF",
+          "--hydro_host_kernel_type=LEGACY",
+          "--hydro_device_kernel_type=OFF"
+        ]
+      ],
+      "outputToCopy": "${RUN_DIR}/final.silo.data/0.silo",
+      "copyDestination": "${TESTDATA}/sod_big_without_am.silo",
+      "previousLocalCandidateSha256": "4c87539b99b988652f59161d7ee2f6fe21b2824d13ef8f3cd4bbfe020d5dcb77",
+      "gccValidationExecutableSha256": "1b5aa559b466a2b4dcb0379e50cee51d414f664e5874e03af98b85b0a528834a"
+    }
+  },
+  "validation": {
+    "scenarios": [
+      "sod",
+      "sod_big",
+      "rotating_star",
+      "sphere"
+    ],
+    "backends": [
+      "LEGACY",
+      "native CUDA",
+      "Kokkos HPX",
+      "Kokkos CUDA"
+    ],
+    "toolchains": [
+      "gcc",
+      "clang"
+    ],
+    "completedCleanExits": 32,
+    "emptyComparisons": 32,
+    "comparisonMeaning": "LEGACY versus the candidate/reference; each other backend versus its same-compiler LEGACY",
+    "crossCompilerDirectComparisons": 2,
+    "crossCompilerCases": [
+      "rotating_star",
+      "sod_big"
+    ],
+    "crossCompilerEmptyDiffs": true,
+    "comparisonMetric": "abs(A-B)/(abs(A)+abs(B)+1) > 1.0e-12 flags a difference",
+    "comparisonArguments": [
+      "-e",
+      "diff",
+      "-q",
+      "-x",
+      "1.0",
+      "-R",
+      "1.0e-12",
+      "-E",
+      "lx, ly, lz, idle_rate, locality, _hdf5libinfo, _silolibinfo"
+    ],
+    "exclusions": [
+      "lx",
+      "ly",
+      "lz",
+      "idle_rate",
+      "locality",
+      "_hdf5libinfo",
+      "_silolibinfo"
+    ],
+    "analyticL1L2": {
+      "runs": 24,
+      "passedChecks": 288,
+      "existingCTestChecks": 272,
+      "supplementalSodSzChecks": 16,
+      "independentSpecies2": true,
+      "expectationsChanged": false
+    },
+    "coverageLimits": [
+      "Agreement uses the stated mixed absolute/relative metric and exclusions, not byte equality across compilers.",
+      "Single-locality, two-worker runs; no distributed/QB validation.",
+      "Blast and IPR validation are outside this reference-data change and were still pending when this provenance was prepared."
+    ]
+  },
+  "timeMetadata": {
+    "rotatingStarCodeStopTime": 0.1,
+    "storedPhysicalTimeSeconds": 387.126391905434,
+    "codeToSeconds": 3871.26391905434,
+    "explanation": "The current Silo writer stores node time multiplied by code_to_s; old reference stored 0.1. This metadata conversion is separate from PPM numerical changes."
+  },
+  "historicalCandidateProvenanceSha256": "00175a15c579c0dbf7fdc78e82b06229fa7d8d465c60a3ddaeb1a6b1f4218ed2"
+}
