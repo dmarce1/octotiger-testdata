@@ -1,0 +1,249 @@
+{
+  "generation": {
+    "command": [
+      "${OCTO_BUILD}/octotiger",
+      "--hpx:threads=2",
+      "--hpx:bind=none",
+      "--hpx:localities=1",
+      "--config_file=${OCTO_SRC}/test_problems/wd_equilibrium/equilibrium.ini"
+    ],
+    "configuration": "# Cold, nonrotating, one-solar-mass WD; the model normalizes M = R = G = 1.\nproblem=star\neos=wd\ngravity=on\nhydro=on\nradiation=off\nomega=0\nn_species=1\n\n# dx_finest = 2 * 2.56 / (8 * 2^4) = 0.04: diameter 2 spans 50 cells.\nxscale=2.56\nmin_level=1\nmax_level=4\nunigrid=off\nrotating_star_amr=off\nngrids=-1\nrefinement_floor=1e-5\nstar_rho_out=1e-10\nrho_floor=1e-10\n# Suppress roundoff below zero in the cold dual-energy tracer (e_th >= 1e-50).\ntau_floor=1e-30\n\ncfl=0.4\ntheta=0.35\nmonopole_host_kernel_type=LEGACY\nmultipole_host_kernel_type=LEGACY\nhydro_host_kernel_type=LEGACY\namr_boundary_kernel_type=AMR_LEGACY\nmonopole_device_kernel_type=OFF\nmultipole_device_kernel_type=OFF\nhydro_device_kernel_type=OFF\nnumber_gpus=0\nexecutors_per_gpu=0\n\n# stop_step is inclusive: indices 0, 1, 2 produce three timesteps.\nstop_step=2\nstop_time=1\nodt=1\nsilo_num_groups=1\ndisable_output=off\ndisable_diagnostics=on\ndisable_analytic=on\n",
+    "configurationPath": "test_problems/wd_equilibrium/equilibrium.ini",
+    "finalCodeTime": 0.05368397,
+    "localities": 1,
+    "modelMassG": 1.989e+33,
+    "modelRadiusCm": 556931449.2297934,
+    "sourceOutput": "final.silo.data/0.silo",
+    "timesteps": 3,
+    "workerThreads": 2,
+    "workingDirectory": "${OCTO_BUILD}/test_problems/wd_equilibrium/run_grid8"
+  },
+  "octotiger": {
+    "baseCommit": "100a1526a63ce673e0d57110f3aca8a3fe7a79fd",
+    "baseContains": "Correct white dwarf EOS sound speed",
+    "branch": "wd_bugfix",
+    "changedAndNewSourceFilesSha256": {
+      "CMakeLists.txt": "61ead889e66675ac97d371ae4729301a9294a50b2d6499d03fbc76d61d9ad1fd",
+      "frontend/init_methods.cpp": "99d22cff2c7a4460d42732b21cc68e7c38c2ab80fa94a82c2ec2fa61da507bd7",
+      "octotiger/problem.hpp": "a237986b69289abeca81ed930cd19b835f1d4290517a6e1f0f68f31356495f03",
+      "octotiger/test_problems/wd_equilibrium.hpp": "850078e97ccf2db28a3c0c6b4b1a50d80749496124899021bc3c0a0598e2c432",
+      "src/problem.cpp": "422aed7dbc6a2c3c755b6a3d8f791bbd00e2b7e86f3ed8177c9c3a73a78cadf6",
+      "src/test_problems/wd_equilibrium.cpp": "4a2c336bbfd974fd8c50f9c996841f6da3620aa2bd49a760c1d7b6ec67882baf",
+      "test_problems/CMakeLists.txt": "6d461d2106045cfd4b41621efb182ca3ce40ec159eeaf4dce1d9b034cf296e00",
+      "test_problems/wd_equilibrium/CMakeLists.txt": "bb404677b144c1b52a28714b12b041825afb0b2e7efd06ec0b7d59c8acca8748",
+      "test_problems/wd_equilibrium/README.md": "853bf702e2d3fcd35566e15c30842d7d56c551a0264999ee50f151f9b09c9817",
+      "test_problems/wd_equilibrium/equilibrium.ini": "102ab48fd415070fdb2b32aa9a35f9fb9ca9b99a42a144a643290435143df277",
+      "test_problems/wd_equilibrium/model.cpp": "0da9805b20c07aec78abe7b37fb2c0c4bb5be12d24f7d44aa837275ec7df5d07",
+      "test_problems/wd_equilibrium/validate.py": "fb46aad23b06946901c3cad89b9cb4e948f67e8ae5888422feea892753a87d35"
+    },
+    "diffNote": "The tracked diff hash alone omits new files; the file manifest explicitly includes both changed and newly added files.",
+    "repository": "https://github.com/STEllAR-GROUP/octotiger",
+    "sourceIdentity": "The equilibrium setup is the following file contents on the base commit; its containing Octo-Tiger commit records this testdata commit as a submodule.",
+    "trackedSourceDiffSha256": "ed4c26f454d4c90c2018f3b58b419a9cb1ff6d5a2640cc187c6d6f8b690670fc"
+  },
+  "purpose": "Three-step cold one-solar-mass WD regression with 50 finest cells across its diameter and density-based AMR",
+  "recordedAt": "2026-10-19T01:15:31.699827+00:00",
+  "reference": {
+    "bytes": 66641752,
+    "path": "wd_equilibrium_1msun_grid8.silo",
+    "sha256": "143fd7a02d97d6ac8e5494bb27e0a134aa5d13cd89931e10ee5466f3b595fda7"
+  },
+  "testdataBaseCommit": "e75c1498bbc9eb886b4c5129982155209d420a57",
+  "toolchain": {
+    "buildCache": {
+      "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+      "CMAKE_CXX_COMPILER": "/usr/bin/g++-13",
+      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+      "CPPuddle_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/CPPuddle",
+      "FETCHCONTENT_SOURCE_DIR_KOKKOSSIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/kokkossimd-src",
+      "FETCHCONTENT_SOURCE_DIR_SVESIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/svesimd-src",
+      "HPX_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/HPX",
+      "OCTOTIGER_ARCH_FLAG": "-march=native",
+      "OCTOTIGER_CUDA_ARCH": "sm_50",
+      "OCTOTIGER_DISABLE_ILIST": "OFF",
+      "OCTOTIGER_KOKKOS_SIMD_EXTENSION": "DISCOVER",
+      "OCTOTIGER_KOKKOS_SIMD_LIBRARY": "KOKKOS",
+      "OCTOTIGER_SPACK_BUILD": "OFF",
+      "OCTOTIGER_SVE_LEN": "512",
+      "OCTOTIGER_TESTDATA_DIR": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/octotiger_wd_bugfix/octotiger-testdata",
+      "OCTOTIGER_THETA_MINIMUM": "0.34",
+      "OCTOTIGER_WITH_AVX": "OFF",
+      "OCTOTIGER_WITH_AVX2": "OFF",
+      "OCTOTIGER_WITH_AVX512": "OFF",
+      "OCTOTIGER_WITH_BLAST_TEST": "ON",
+      "OCTOTIGER_WITH_BOOST_MULTIPRECISION": "OFF",
+      "OCTOTIGER_WITH_CUDA": "OFF",
+      "OCTOTIGER_WITH_CXX17": "OFF",
+      "OCTOTIGER_WITH_CXX20": "ON",
+      "OCTOTIGER_WITH_DOCU": "OFF",
+      "OCTOTIGER_WITH_FAST_FP_CONTRACT": "OFF",
+      "OCTOTIGER_WITH_GRAV_PAR": "OFF",
+      "OCTOTIGER_WITH_GRIDDIM": "8",
+      "OCTOTIGER_WITH_HIP": "OFF",
+      "OCTOTIGER_WITH_HYDRO_HOST_HPX_EXECUTOR": "OFF",
+      "OCTOTIGER_WITH_INTEL_GPU_WORKAROUND": "OFF",
+      "OCTOTIGER_WITH_KOKKOS": "OFF",
+      "OCTOTIGER_WITH_KOKKOS_HYDRO_TASKS": "1",
+      "OCTOTIGER_WITH_KOKKOS_MONOPOLE_TASKS": "1",
+      "OCTOTIGER_WITH_KOKKOS_MULTIPOLE_TASKS": "1",
+      "OCTOTIGER_WITH_LEGACY_Vc": "OFF",
+      "OCTOTIGER_WITH_MAX_NUMBER_FIELDS": "15",
+      "OCTOTIGER_WITH_MONOPOLE_HOST_HPX_EXECUTOR": "OFF",
+      "OCTOTIGER_WITH_MULTIPOLE_HOST_HPX_EXECUTOR": "OFF",
+      "OCTOTIGER_WITH_POLLING_EXECUTORS": "ON",
+      "OCTOTIGER_WITH_QUADMATH": "ON",
+      "OCTOTIGER_WITH_RADIATION": "OFF",
+      "OCTOTIGER_WITH_TESTS": "ON",
+      "OCTOTIGER_WITH_UNBUFFERED_STDOUT": "OFF",
+      "OCTOTIGER_WITH_Vc": "ON",
+      "Silo_INCLUDE_DIR": "/usr/include",
+      "Silo_LIBRARY": "/usr/lib/x86_64-linux-gnu/libsiloh5.so",
+      "Vc_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc"
+    },
+    "compiler": "g++-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "executableSha256": "2db344449d861c2b092017dac63bbcec44fed3c0d9faa28f7a1b0664d4a9bb8b",
+    "hpxInstalledHeaderVersion": "2.0.0-rc1",
+    "hpxNote": "Reused existing hpx2rcDependencies GCC installation; application CUDA and Kokkos backends are disabled. Library hashes identify the installed runtime.",
+    "runtimeLibraries": {
+      "libboost_program_options.so.1.83.0": {
+        "path": "/lib/x86_64-linux-gnu/libboost_program_options.so.1.83.0",
+        "sha256": "15f34bcb75dfb0fa30af13cf2b82fb7a9a8e0fbbadf7cabcd397dd65bde552f3"
+      },
+      "libhpx.so.2": {
+        "path": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/libhpx.so.2",
+        "sha256": "91fc5fee3a93d36d6d78a7c9f677173d52dccb9c517879ec30a4e1414c646a01"
+      },
+      "libhpx_core.so": {
+        "path": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/libhpx_core.so",
+        "sha256": "79fa230dccdb2d00e9edf33692a1993ca48e9ed8e24cc54ad09705e75605bada"
+      },
+      "libhpx_hydrolib.so": {
+        "path": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/wd_bugfix_cpu_build/libhpx_hydrolib.so",
+        "sha256": "a63c7cf91fc73fb92f28b434072b43a43fbe1fcb4487d699329011f4f0e5e16d"
+      },
+      "libhpx_octolib.so": {
+        "path": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/wd_bugfix_cpu_build/libhpx_octolib.so",
+        "sha256": "da07430ec5bd6921cde41fbf7afb543a2bcabdd624d1b871691db5ab0fc1b6b7"
+      },
+      "libhpx_optionslib.so": {
+        "path": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/wd_bugfix_cpu_build/libhpx_optionslib.so",
+        "sha256": "f697f4d56780c4ebb8edde6aef5092b2b00d2627255c8ac94bba2cacb23a3eb4"
+      },
+      "libsiloh5.so.0": {
+        "path": "/lib/x86_64-linux-gnu/libsiloh5.so.0",
+        "sha256": "e733996d703319927407c07c8070ef851644c3e273ec9de4d873e68083b8b4e0"
+      }
+    },
+    "siloVersion": "4.12.1",
+    "vcVersion": "1.4.5"
+  },
+  "validation": {
+    "focusedCTest": "5 of 5 passed: wdeos_sound_speed, equilibrium model, CPU evolution, Silo diff, physical diagnostics",
+    "physics": {
+      "checks": {
+        "com_preserved": true,
+        "density_amr_has_coarser_leaves": true,
+        "evolved_from_zero_time": true,
+        "fifty_finest_cells_across_diameter": true,
+        "initial_momenta_zero": true,
+        "limited_density_drift": true,
+        "limited_velocity_growth": true,
+        "mass_conserved": true,
+        "one_solar_mass": true,
+        "positive_effective_thermodynamics": true
+      },
+      "metrics": {
+        "coarsest_dx_cm": 89109031.87676692,
+        "com_relative_drift": 1.1825413494194708e-16,
+        "density_relative_l1_drift": 0.0007011733664345975,
+        "diameter_in_finest_cells": 50.000000000000014,
+        "dynamical_velocity_cm_s": 488161742.33015984,
+        "expected_mass_g": 1.989e+33,
+        "final_com_cm": [
+          1.2156135427235622e-09,
+          1.1548328655873841e-08,
+          2.188104376902412e-08
+        ],
+        "final_com_speed_cm_s": 2.188286418786258e-10,
+        "final_rms_velocity_over_dynamical": 0.0011346617967977572,
+        "final_time_s": 0.06124668884648456,
+        "finest_dx_cm": 22277257.96919173,
+        "initial_com_cm": [
+          -1.215613542725947e-08,
+          -1.215613542725947e-09,
+          -4.13308604526822e-08
+        ],
+        "initial_com_speed_cm_s": 0.0,
+        "initial_mass_relative_error": 1.5291455178756408e-06,
+        "initial_rms_velocity_over_dynamical": 0.0,
+        "initial_time_s": 0.0,
+        "leaf_blocks": 848,
+        "leaf_blocks_by_levels_below_finest": {
+          "0": 448,
+          "1": 392,
+          "2": 8
+        },
+        "mass_final_g": 1.9889969585334672e+33,
+        "mass_initial_g": 1.9889969585295652e+33,
+        "mass_relative_drift": 1.9617640845126516e-12,
+        "radius_cm": 556931449.2297934
+      },
+      "passed": true,
+      "scope": "Three-step physical sanity checks with dual-energy pressure recovery. Negative conserved gas energy is diagnostic, not a thermodynamic failure. No exact discrete equilibrium or long-run stability claim.",
+      "thermodynamics": {
+        "final": {
+          "dual_energy_fallback_cells": 179652,
+          "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+          "minimum_effective_thermal_energy_erg_cm3": 2.74382896196885e-26,
+          "minimum_egas_erg_cm3": -1.812379193162295e+18,
+          "negative_egas_cells": 26800,
+          "negative_egas_integral_erg": 5.194294910642245e+43,
+          "negative_egas_mass_fraction": 1.8943028638260818e-05,
+          "negative_egas_over_binding_scale": 1.0958833775788096e-07
+        },
+        "initial": {
+          "dual_energy_fallback_cells": 434176,
+          "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+          "minimum_effective_thermal_energy_erg_cm3": 0.0,
+          "minimum_egas_erg_cm3": 59256631.94803639,
+          "negative_egas_cells": 0,
+          "negative_egas_integral_erg": 0.0,
+          "negative_egas_mass_fraction": 0.0,
+          "negative_egas_over_binding_scale": 0.0
+        }
+      },
+      "tolerances": {
+        "com_drift_over_radius": 1e-06,
+        "density_relative_l1_drift": 0.01,
+        "dual_energy_switch": 0.001,
+        "mass_relative_drift": 1e-07,
+        "mass_relative_error": 0.003,
+        "rms_velocity_over_dynamical": 0.02
+      }
+    },
+    "qbLoginAttempts": 0,
+    "scope": "Single-locality CPU, three timesteps only. Long QB evolution and distributed/GPU validation were not performed.",
+    "siloComparison": {
+      "command": [
+        "browser",
+        "--proper-exit-code",
+        "-e",
+        "diff",
+        "-q",
+        "-x",
+        "1.0",
+        "-R",
+        "1e-12",
+        "-E",
+        "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+        "REFERENCE",
+        "INDEPENDENT_RUN/final.silo.data/0.silo"
+      ],
+      "failurePattern": "[.]vals|appears only in file",
+      "generatorVsIndependentRun": "passed, including all physical fields and mesh/object inventories",
+      "independentRun": "A separate three-step run with the same model, configuration and CPU kernels; source include grouping changed without numerical changes before the recorded generator build.",
+      "independentRunDataSha256": "9891a0410bfba4ba2d0186399946e2a0dda0c19e8c33e3b4d096fe62ae3fc0df"
+    }
+  }
+}
