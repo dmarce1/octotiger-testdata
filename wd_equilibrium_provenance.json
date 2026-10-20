@@ -5,11 +5,14 @@
       "--hpx:threads=2",
       "--hpx:bind=none",
       "--hpx:localities=1",
+      "--hpx:ini=hpx.threadpools.io_pool_size=1",
+      "--hpx:ini=hpx.threadpools.timer_pool_size=1",
       "--config_file=${OCTO_SRC}/test_problems/wd_equilibrium/equilibrium.ini"
     ],
     "configuration": "# Cold, nonrotating, one-solar-mass WD; the model normalizes M = R = G = 1.\nproblem=star\neos=wd\ngravity=on\nhydro=on\nradiation=off\nomega=0\nn_species=1\n\n# dx_finest = 2 * 2.56 / (8 * 2^4) = 0.04: diameter 2 spans 50 cells.\nxscale=2.56\nmin_level=1\nmax_level=4\nunigrid=off\nrotating_star_amr=off\nngrids=-1\nrefinement_floor=1e-5\nstar_rho_out=1e-10\nrho_floor=1e-10\n# Suppress roundoff below zero in the cold dual-energy tracer (e_th >= 1e-50).\ntau_floor=1e-30\n\ncfl=0.4\ntheta=0.35\nmonopole_host_kernel_type=LEGACY\nmultipole_host_kernel_type=LEGACY\nhydro_host_kernel_type=LEGACY\namr_boundary_kernel_type=AMR_LEGACY\nmonopole_device_kernel_type=OFF\nmultipole_device_kernel_type=OFF\nhydro_device_kernel_type=OFF\nnumber_gpus=0\nexecutors_per_gpu=0\n\n# stop_step is inclusive: indices 0, 1, 2 produce three timesteps.\nstop_step=2\nstop_time=1\nodt=1\nsilo_num_groups=1\ndisable_output=off\ndisable_diagnostics=on\ndisable_analytic=on\n",
     "configurationPath": "test_problems/wd_equilibrium/equilibrium.ini",
     "finalCodeTime": 0.05368397,
+    "finalCodeTimeNote": "Printed step.dat value; exact physical time is in validation.physics.metrics.final_time_s.",
     "localities": 1,
     "modelMassG": 1.989e+33,
     "modelRadiusCm": 556931449.2297934,
@@ -19,42 +22,60 @@
     "workingDirectory": "${OCTO_BUILD}/test_problems/wd_equilibrium/run_grid8"
   },
   "octotiger": {
-    "baseCommit": "100a1526a63ce673e0d57110f3aca8a3fe7a79fd",
-    "baseContains": "Correct white dwarf EOS sound speed",
+    "baseCommit": "c5c56ddebf24c0da77d97e1c5f3ff451bcd1c170",
+    "baseContains": "Committed WD norm expectation corrections; numerical reproducibility CMake changes remain uncommitted.",
     "branch": "wd_bugfix",
     "changedAndNewSourceFilesSha256": {
-      "CMakeLists.txt": "61ead889e66675ac97d371ae4729301a9294a50b2d6499d03fbc76d61d9ad1fd",
+      "CMakeLists.txt": "946ca5aa7a87a6ef683a88d3b0535021d351662d54a17b6afb626b5ed420f723",
       "frontend/init_methods.cpp": "99d22cff2c7a4460d42732b21cc68e7c38c2ab80fa94a82c2ec2fa61da507bd7",
       "octotiger/problem.hpp": "a237986b69289abeca81ed930cd19b835f1d4290517a6e1f0f68f31356495f03",
       "octotiger/test_problems/wd_equilibrium.hpp": "850078e97ccf2db28a3c0c6b4b1a50d80749496124899021bc3c0a0598e2c432",
       "src/problem.cpp": "422aed7dbc6a2c3c755b6a3d8f791bbd00e2b7e86f3ed8177c9c3a73a78cadf6",
       "src/test_problems/wd_equilibrium.cpp": "4a2c336bbfd974fd8c50f9c996841f6da3620aa2bd49a760c1d7b6ec67882baf",
       "test_problems/CMakeLists.txt": "6d461d2106045cfd4b41621efb182ca3ce40ec159eeaf4dce1d9b034cf296e00",
-      "test_problems/wd_equilibrium/CMakeLists.txt": "bb404677b144c1b52a28714b12b041825afb0b2e7efd06ec0b7d59c8acca8748",
+      "test_problems/wd_equilibrium/CMakeLists.txt": "2bbdddedf45ae486527072efc08e7740584200766fe8b00ae9d1f8382f5ddb74",
       "test_problems/wd_equilibrium/README.md": "853bf702e2d3fcd35566e15c30842d7d56c551a0264999ee50f151f9b09c9817",
       "test_problems/wd_equilibrium/equilibrium.ini": "102ab48fd415070fdb2b32aa9a35f9fb9ca9b99a42a144a643290435143df277",
       "test_problems/wd_equilibrium/model.cpp": "0da9805b20c07aec78abe7b37fb2c0c4bb5be12d24f7d44aa837275ec7df5d07",
       "test_problems/wd_equilibrium/validate.py": "fb46aad23b06946901c3cad89b9cb4e948f67e8ae5888422feea892753a87d35"
     },
-    "diffNote": "The tracked diff hash alone omits new files; the file manifest explicitly includes both changed and newly added files.",
+    "diffNote": "Diff hash covers only the two uncommitted CMake source files. Other source comes from baseCommit; testdata files are recorded separately.",
     "repository": "https://github.com/STEllAR-GROUP/octotiger",
-    "sourceIdentity": "The equilibrium setup is the following file contents on the base commit; its containing Octo-Tiger commit records this testdata commit as a submodule.",
-    "trackedSourceDiffSha256": "ed4c26f454d4c90c2018f3b58b419a9cb1ff6d5a2640cc187c6d6f8b690670fc"
+    "sourceIdentity": "Recorded base commit plus the exact changed CMake file contents identified below; EOS formulas are unchanged.",
+    "trackedSourceDiffSha256": "471832610574d6be21c8363b975eec107c5bbbfbbd3eb3262d5c9f41ac907ead"
   },
   "purpose": "Three-step cold one-solar-mass WD regression with 50 finest cells across its diameter and density-based AMR",
-  "recordedAt": "2026-10-19T01:15:31.699827+00:00",
+  "recordedAt": "2026-10-20T02:35:11.815814+00:00",
   "reference": {
-    "bytes": 66641752,
+    "bytes": 66642984,
     "path": "wd_equilibrium_1msun_grid8.silo",
-    "sha256": "143fd7a02d97d6ac8e5494bb27e0a134aa5d13cd89931e10ee5466f3b595fda7"
+    "sha256": "6bc11e842edc0c17ccf5b1a8fc075875c01209bf24cde907d793b27fb66c41a4"
   },
-  "testdataBaseCommit": "e75c1498bbc9eb886b4c5129982155209d420a57",
+  "replacement": {
+    "accuracyScope": "Reproducibility correction; this does not establish improved EOS accuracy or long-term equilibrium stability.",
+    "previousReferenceSha256": "143fd7a02d97d6ac8e5494bb27e0a134aa5d13cd89931e10ee5466f3b595fda7",
+    "reason": "Replace the previous GCC fast-math reference with the output of consistent CPU arithmetic. Three independent complete compiler/optimization builds agree bit-for-bit. Tolerances, field exclusions, physical checks and EOS formulas are unchanged."
+  },
+  "testdataBaseCommit": "3be3b1616977a869363a35133dba811c7189328c",
   "toolchain": {
     "buildCache": {
-      "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+      "CMAKE_BUILD_TYPE": "Release",
       "CMAKE_CXX_COMPILER": "/usr/bin/g++-13",
-      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_COMPILER-ADVANCED": "1",
+      "CMAKE_CXX_COMPILER_AR": "/usr/bin/gcc-ar-13",
+      "CMAKE_CXX_COMPILER_AR-ADVANCED": "1",
+      "CMAKE_CXX_COMPILER_RANLIB": "/usr/bin/gcc-ranlib-13",
+      "CMAKE_CXX_COMPILER_RANLIB-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS": "-march=haswell -mtune=haswell",
+      "CMAKE_CXX_FLAGS-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g",
+      "CMAKE_CXX_FLAGS_DEBUG-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG",
+      "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_CXX_FLAGS_RELEASE-ADVANCED": "1",
       "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+      "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED": "1",
       "CPPuddle_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/CPPuddle",
       "FETCHCONTENT_SOURCE_DIR_KOKKOSSIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/kokkossimd-src",
       "FETCHCONTENT_SOURCE_DIR_SVESIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/svesimd-src",
@@ -102,7 +123,7 @@
       "Vc_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc"
     },
     "compiler": "g++-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
-    "executableSha256": "2db344449d861c2b092017dac63bbcec44fed3c0d9faa28f7a1b0664d4a9bb8b",
+    "executableSha256": "310745390d8394d68cc7eac7b7449cc9c83891d92b497fa96b9b034b47fccd25",
     "hpxInstalledHeaderVersion": "2.0.0-rc1",
     "hpxNote": "Reused existing hpx2rcDependencies GCC installation; application CUDA and Kokkos backends are disabled. Library hashes identify the installed runtime.",
     "runtimeLibraries": {
@@ -119,16 +140,16 @@
         "sha256": "79fa230dccdb2d00e9edf33692a1993ca48e9ed8e24cc54ad09705e75605bada"
       },
       "libhpx_hydrolib.so": {
-        "path": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/wd_bugfix_cpu_build/libhpx_hydrolib.so",
-        "sha256": "a63c7cf91fc73fb92f28b434072b43a43fbe1fcb4487d699329011f4f0e5e16d"
+        "path": "/tmp/wd_fp_fix_20261019/gcc_O3_full/libhpx_hydrolib.so",
+        "sha256": "f21d4a769393ec78cc33105e87e3eb594c71f990a56ba4f3201954ea3cea8ae1"
       },
       "libhpx_octolib.so": {
-        "path": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/wd_bugfix_cpu_build/libhpx_octolib.so",
-        "sha256": "da07430ec5bd6921cde41fbf7afb543a2bcabdd624d1b871691db5ab0fc1b6b7"
+        "path": "/tmp/wd_fp_fix_20261019/gcc_O3_full/libhpx_octolib.so",
+        "sha256": "988296b4072ea20f152dcf47536f783e324df8a999c709d978159c3d1f637171"
       },
       "libhpx_optionslib.so": {
-        "path": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/wd_bugfix_cpu_build/libhpx_optionslib.so",
-        "sha256": "f697f4d56780c4ebb8edde6aef5092b2b00d2627255c8ac94bba2cacb23a3eb4"
+        "path": "/tmp/wd_fp_fix_20261019/gcc_O3_full/libhpx_optionslib.so",
+        "sha256": "43abd136dc87d6d161bd97d2ca721137bf02f2bf44b2a291bce51661189fbb1d"
       },
       "libsiloh5.so.0": {
         "path": "/lib/x86_64-linux-gnu/libsiloh5.so.0",
@@ -139,7 +160,132 @@
     "vcVersion": "1.4.5"
   },
   "validation": {
-    "focusedCTest": "5 of 5 passed: wdeos_sound_speed, equilibrium model, CPU evolution, Silo diff, physical diagnostics",
+    "crossCompilerAndOptimizationComparisons": {
+      "gcc_O3_vs_clang_O3_final": {
+        "blocks": 848,
+        "comparisonReportSha256": "2b8e18015e0467f37cde9ccefeaeec473ad339e35eeee74f0a1ed4ce08f382d2",
+        "differentValuesByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        },
+        "meshCoordinatesExact": true,
+        "physicalTimeDifferenceSeconds": 0.0,
+        "toleranceFailuresByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        }
+      },
+      "gcc_O3_vs_clang_O3_initial": {
+        "blocks": 848,
+        "comparisonReportSha256": "7390b9a86d73c718bc8034436ff9dfa6b777d77f30dadbe9540eacd94c0c9218",
+        "differentValuesByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        },
+        "meshCoordinatesExact": true,
+        "physicalTimeDifferenceSeconds": 0.0,
+        "toleranceFailuresByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        }
+      },
+      "gcc_O3_vs_gcc_O2_final": {
+        "blocks": 848,
+        "comparisonReportSha256": "2b8e18015e0467f37cde9ccefeaeec473ad339e35eeee74f0a1ed4ce08f382d2",
+        "differentValuesByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        },
+        "meshCoordinatesExact": true,
+        "physicalTimeDifferenceSeconds": 0.0,
+        "toleranceFailuresByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        }
+      },
+      "gcc_O3_vs_gcc_O2_initial": {
+        "blocks": 848,
+        "comparisonReportSha256": "7390b9a86d73c718bc8034436ff9dfa6b777d77f30dadbe9540eacd94c0c9218",
+        "differentValuesByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        },
+        "meshCoordinatesExact": true,
+        "physicalTimeDifferenceSeconds": 0.0,
+        "toleranceFailuresByField": {
+          "egas": 0,
+          "lx": 0,
+          "ly": 0,
+          "lz": 0,
+          "pot": 0,
+          "rho_1": 0,
+          "sx": 0,
+          "sy": 0,
+          "sz": 0,
+          "tau": 0
+        }
+      }
+    },
+    "nonWDRegression": {
+      "clang_O3_full": "Sod LEGACY: simulation and all 16 unchanged norm/Silo checks passed with two HPX workers.",
+      "gcc_O3_full": "Sod LEGACY: simulation and all 16 unchanged norm/Silo checks passed with two HPX workers."
+    },
     "physics": {
       "checks": {
         "com_preserved": true,
@@ -155,27 +301,27 @@
       },
       "metrics": {
         "coarsest_dx_cm": 89109031.87676692,
-        "com_relative_drift": 1.1825413494194708e-16,
-        "density_relative_l1_drift": 0.0007011733664345975,
+        "com_relative_drift": 1.1035587276198299e-16,
+        "density_relative_l1_drift": 0.0007011733664346069,
         "diameter_in_finest_cells": 50.000000000000014,
         "dynamical_velocity_cm_s": 488161742.33015984,
         "expected_mass_g": 1.989e+33,
         "final_com_cm": [
-          1.2156135427235622e-09,
-          1.1548328655873841e-08,
-          2.188104376902412e-08
+          6.07806771361781e-10,
+          1.3371748969959182e-08,
+          2.6743497939918365e-08
         ],
-        "final_com_speed_cm_s": 2.188286418786258e-10,
-        "final_rms_velocity_over_dynamical": 0.0011346617967977572,
-        "final_time_s": 0.06124668884648456,
+        "final_com_speed_cm_s": 1.84100192279261e-10,
+        "final_rms_velocity_over_dynamical": 0.001134661796797749,
+        "final_time_s": 0.06124668884648458,
         "finest_dx_cm": 22277257.96919173,
         "initial_com_cm": [
-          -1.215613542725947e-08,
-          -1.215613542725947e-09,
-          -4.13308604526822e-08
+          -1.5195169284074335e-08,
+          -4.862454170903788e-09,
+          -2.9782531796785698e-08
         ],
         "initial_com_speed_cm_s": 0.0,
-        "initial_mass_relative_error": 1.5291455178756408e-06,
+        "initial_mass_relative_error": 1.5291455176535962e-06,
         "initial_rms_velocity_over_dynamical": 0.0,
         "initial_time_s": 0.0,
         "leaf_blocks": 848,
@@ -184,8 +330,8 @@
           "1": 392,
           "2": 8
         },
-        "mass_final_g": 1.9889969585334672e+33,
-        "mass_initial_g": 1.9889969585295652e+33,
+        "mass_final_g": 1.9889969585334675e+33,
+        "mass_initial_g": 1.9889969585295654e+33,
         "mass_relative_drift": 1.9617640845126516e-12,
         "radius_cm": 556931449.2297934
       },
@@ -196,11 +342,11 @@
           "dual_energy_fallback_cells": 179652,
           "minimum_effective_pressure_erg_cm3": 39504411.412969664,
           "minimum_effective_thermal_energy_erg_cm3": 2.74382896196885e-26,
-          "minimum_egas_erg_cm3": -1.812379193162295e+18,
+          "minimum_egas_erg_cm3": -1.8123791931644703e+18,
           "negative_egas_cells": 26800,
-          "negative_egas_integral_erg": 5.194294910642245e+43,
-          "negative_egas_mass_fraction": 1.8943028638260818e-05,
-          "negative_egas_over_binding_scale": 1.0958833775788096e-07
+          "negative_egas_integral_erg": 5.194294910642779e+43,
+          "negative_egas_mass_fraction": 1.894302863826155e-05,
+          "negative_egas_over_binding_scale": 1.0958833775789223e-07
         },
         "initial": {
           "dual_energy_fallback_cells": 434176,
@@ -222,9 +368,430 @@
         "rms_velocity_over_dynamical": 0.02
       }
     },
+    "profiles": [
+      {
+        "actualCompileOptions": {
+          "src/grid.cpp": [
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/grid_fmm.cpp": [
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/physcon.cpp": [
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/problem.cpp": [
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/test_problems/wd_equilibrium.cpp": [
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/unitiger/hydro_impl/hydro_kernel_interface.cpp": [
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-ffp-contract=off"
+          ]
+        },
+        "applicationLibrariesSha256": {
+          "libhpx_hydrolib.so": "7a7b3e80af8d369d58d8627b6796ff969010c8cac8cb7a3a35c3093840dc9870",
+          "libhpx_octolib.so": "079b3c70db7d5f60e034229addb848887ee42efb0cc34e4cde79eec882410b8d",
+          "libhpx_optionslib.so": "8a8d10e901e36b193dff9004f9a15e1b90641fb92a4309e86a7c5ac1c00afa46"
+        },
+        "buildCache": {
+          "CMAKE_BUILD_TYPE": "Release",
+          "CMAKE_CXX_COMPILER": "/usr/bin/g++-13",
+          "CMAKE_CXX_COMPILER-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_AR": "/usr/bin/gcc-ar-13",
+          "CMAKE_CXX_COMPILER_AR-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_RANLIB": "/usr/bin/gcc-ranlib-13",
+          "CMAKE_CXX_COMPILER_RANLIB-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS": "",
+          "CMAKE_CXX_FLAGS-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_DEBUG": "-g",
+          "CMAKE_CXX_FLAGS_DEBUG-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG",
+          "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELEASE-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED": "1",
+          "CPPuddle_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/CPPuddle",
+          "FETCHCONTENT_SOURCE_DIR_KOKKOSSIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/kokkossimd-src",
+          "FETCHCONTENT_SOURCE_DIR_SVESIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/svesimd-src",
+          "HPX_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/HPX",
+          "OCTOTIGER_ARCH_FLAG": "-march=native",
+          "OCTOTIGER_CUDA_ARCH": "sm_50",
+          "OCTOTIGER_DISABLE_ILIST": "OFF",
+          "OCTOTIGER_KOKKOS_SIMD_EXTENSION": "DISCOVER",
+          "OCTOTIGER_KOKKOS_SIMD_LIBRARY": "KOKKOS",
+          "OCTOTIGER_SPACK_BUILD": "OFF",
+          "OCTOTIGER_SVE_LEN": "512",
+          "OCTOTIGER_TESTDATA_DIR": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/octotiger_wd_bugfix/octotiger-testdata",
+          "OCTOTIGER_THETA_MINIMUM": "0.34",
+          "OCTOTIGER_WITH_AVX": "OFF",
+          "OCTOTIGER_WITH_AVX2": "OFF",
+          "OCTOTIGER_WITH_AVX512": "OFF",
+          "OCTOTIGER_WITH_BLAST_TEST": "ON",
+          "OCTOTIGER_WITH_BOOST_MULTIPRECISION": "OFF",
+          "OCTOTIGER_WITH_CUDA": "OFF",
+          "OCTOTIGER_WITH_CXX17": "OFF",
+          "OCTOTIGER_WITH_CXX20": "ON",
+          "OCTOTIGER_WITH_DOCU": "OFF",
+          "OCTOTIGER_WITH_FAST_FP_CONTRACT": "OFF",
+          "OCTOTIGER_WITH_GRAV_PAR": "OFF",
+          "OCTOTIGER_WITH_GRIDDIM": "8",
+          "OCTOTIGER_WITH_HIP": "OFF",
+          "OCTOTIGER_WITH_HYDRO_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_INTEL_GPU_WORKAROUND": "OFF",
+          "OCTOTIGER_WITH_KOKKOS": "OFF",
+          "OCTOTIGER_WITH_KOKKOS_HYDRO_TASKS": "1",
+          "OCTOTIGER_WITH_KOKKOS_MONOPOLE_TASKS": "1",
+          "OCTOTIGER_WITH_KOKKOS_MULTIPOLE_TASKS": "1",
+          "OCTOTIGER_WITH_LEGACY_Vc": "OFF",
+          "OCTOTIGER_WITH_MAX_NUMBER_FIELDS": "15",
+          "OCTOTIGER_WITH_MONOPOLE_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_MULTIPOLE_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_POLLING_EXECUTORS": "ON",
+          "OCTOTIGER_WITH_QUADMATH": "ON",
+          "OCTOTIGER_WITH_RADIATION": "OFF",
+          "OCTOTIGER_WITH_TESTS": "ON",
+          "OCTOTIGER_WITH_UNBUFFERED_STDOUT": "OFF",
+          "OCTOTIGER_WITH_Vc": "ON",
+          "Silo_INCLUDE_DIR": "/usr/include",
+          "Silo_LIBRARY": "/usr/lib/x86_64-linux-gnu/libsiloh5.so",
+          "Vc_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc"
+        },
+        "compiler": "g++-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "executableSha256": "69e15c7cd0cd683c8940690ad53e7fcde06021fdc6df5b904afae57dc2e207ce",
+        "finalDataSha256": "2518ad5658ade36dc5335b18ae114f18573f50331144eb2bb9fcc4deace342d6",
+        "focusedCTest": "4/4 passed: model, sound speed, unchanged Silo diff, physical diagnostics",
+        "name": "gcc_O2_full",
+        "physicalChecks": {
+          "com_preserved": true,
+          "density_amr_has_coarser_leaves": true,
+          "evolved_from_zero_time": true,
+          "fifty_finest_cells_across_diameter": true,
+          "initial_momenta_zero": true,
+          "limited_density_drift": true,
+          "limited_velocity_growth": true,
+          "mass_conserved": true,
+          "one_solar_mass": true,
+          "positive_effective_thermodynamics": true
+        },
+        "physicalChecksPassed": true,
+        "simulation": "A separate complete three-step run; two HPX workers, one IO-pool thread and one timer-pool thread."
+      },
+      {
+        "actualCompileOptions": {
+          "src/grid.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/grid_fmm.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/physcon.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/problem.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/test_problems/wd_equilibrium.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/unitiger/hydro_impl/hydro_kernel_interface.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-ffp-contract=off"
+          ]
+        },
+        "applicationLibrariesSha256": {
+          "libhpx_hydrolib.so": "f21d4a769393ec78cc33105e87e3eb594c71f990a56ba4f3201954ea3cea8ae1",
+          "libhpx_octolib.so": "988296b4072ea20f152dcf47536f783e324df8a999c709d978159c3d1f637171",
+          "libhpx_optionslib.so": "43abd136dc87d6d161bd97d2ca721137bf02f2bf44b2a291bce51661189fbb1d"
+        },
+        "buildCache": {
+          "CMAKE_BUILD_TYPE": "Release",
+          "CMAKE_CXX_COMPILER": "/usr/bin/g++-13",
+          "CMAKE_CXX_COMPILER-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_AR": "/usr/bin/gcc-ar-13",
+          "CMAKE_CXX_COMPILER_AR-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_RANLIB": "/usr/bin/gcc-ranlib-13",
+          "CMAKE_CXX_COMPILER_RANLIB-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS": "-march=haswell -mtune=haswell",
+          "CMAKE_CXX_FLAGS-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_DEBUG": "-g",
+          "CMAKE_CXX_FLAGS_DEBUG-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG",
+          "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELEASE-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED": "1",
+          "CPPuddle_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/CPPuddle",
+          "FETCHCONTENT_SOURCE_DIR_KOKKOSSIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/kokkossimd-src",
+          "FETCHCONTENT_SOURCE_DIR_SVESIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/svesimd-src",
+          "HPX_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/HPX",
+          "OCTOTIGER_ARCH_FLAG": "-march=native",
+          "OCTOTIGER_CUDA_ARCH": "sm_50",
+          "OCTOTIGER_DISABLE_ILIST": "OFF",
+          "OCTOTIGER_KOKKOS_SIMD_EXTENSION": "DISCOVER",
+          "OCTOTIGER_KOKKOS_SIMD_LIBRARY": "KOKKOS",
+          "OCTOTIGER_SPACK_BUILD": "OFF",
+          "OCTOTIGER_SVE_LEN": "512",
+          "OCTOTIGER_TESTDATA_DIR": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/octotiger_wd_bugfix/octotiger-testdata",
+          "OCTOTIGER_THETA_MINIMUM": "0.34",
+          "OCTOTIGER_WITH_AVX": "OFF",
+          "OCTOTIGER_WITH_AVX2": "OFF",
+          "OCTOTIGER_WITH_AVX512": "OFF",
+          "OCTOTIGER_WITH_BLAST_TEST": "ON",
+          "OCTOTIGER_WITH_BOOST_MULTIPRECISION": "OFF",
+          "OCTOTIGER_WITH_CUDA": "OFF",
+          "OCTOTIGER_WITH_CXX17": "OFF",
+          "OCTOTIGER_WITH_CXX20": "ON",
+          "OCTOTIGER_WITH_DOCU": "OFF",
+          "OCTOTIGER_WITH_FAST_FP_CONTRACT": "OFF",
+          "OCTOTIGER_WITH_GRAV_PAR": "OFF",
+          "OCTOTIGER_WITH_GRIDDIM": "8",
+          "OCTOTIGER_WITH_HIP": "OFF",
+          "OCTOTIGER_WITH_HYDRO_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_INTEL_GPU_WORKAROUND": "OFF",
+          "OCTOTIGER_WITH_KOKKOS": "OFF",
+          "OCTOTIGER_WITH_KOKKOS_HYDRO_TASKS": "1",
+          "OCTOTIGER_WITH_KOKKOS_MONOPOLE_TASKS": "1",
+          "OCTOTIGER_WITH_KOKKOS_MULTIPOLE_TASKS": "1",
+          "OCTOTIGER_WITH_LEGACY_Vc": "OFF",
+          "OCTOTIGER_WITH_MAX_NUMBER_FIELDS": "15",
+          "OCTOTIGER_WITH_MONOPOLE_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_MULTIPOLE_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_POLLING_EXECUTORS": "ON",
+          "OCTOTIGER_WITH_QUADMATH": "ON",
+          "OCTOTIGER_WITH_RADIATION": "OFF",
+          "OCTOTIGER_WITH_TESTS": "ON",
+          "OCTOTIGER_WITH_UNBUFFERED_STDOUT": "OFF",
+          "OCTOTIGER_WITH_Vc": "ON",
+          "Silo_INCLUDE_DIR": "/usr/include",
+          "Silo_LIBRARY": "/usr/lib/x86_64-linux-gnu/libsiloh5.so",
+          "Vc_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc"
+        },
+        "compiler": "g++-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "executableSha256": "310745390d8394d68cc7eac7b7449cc9c83891d92b497fa96b9b034b47fccd25",
+        "finalDataSha256": "6bc11e842edc0c17ccf5b1a8fc075875c01209bf24cde907d793b27fb66c41a4",
+        "focusedCTest": "4/4 passed: model, sound speed, unchanged Silo diff, physical diagnostics",
+        "name": "gcc_O3_full",
+        "physicalChecks": {
+          "com_preserved": true,
+          "density_amr_has_coarser_leaves": true,
+          "evolved_from_zero_time": true,
+          "fifty_finest_cells_across_diameter": true,
+          "initial_momenta_zero": true,
+          "limited_density_drift": true,
+          "limited_velocity_growth": true,
+          "mass_conserved": true,
+          "one_solar_mass": true,
+          "positive_effective_thermodynamics": true
+        },
+        "physicalChecksPassed": true,
+        "simulation": "A separate complete three-step run; two HPX workers, one IO-pool thread and one timer-pool thread."
+      },
+      {
+        "actualCompileOptions": {
+          "src/grid.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/grid_fmm.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/physcon.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/problem.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/test_problems/wd_equilibrium.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fno-fast-math",
+            "-ffp-contract=off"
+          ],
+          "src/unitiger/hydro_impl/hydro_kernel_interface.cpp": [
+            "-march=haswell",
+            "-mtune=haswell",
+            "-O3",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-ffp-contract=off"
+          ]
+        },
+        "applicationLibrariesSha256": {
+          "libhpx_hydrolib.so": "640b20abecf2e6928195d34c975c9e21ec292f865a60cfecb44b5d42f662ce11",
+          "libhpx_octolib.so": "f55dd931d31817f3b48fdf98a5abb481d7fb87607f2701ed47da57b7a4647b04",
+          "libhpx_optionslib.so": "9ecbecb9ce37790ecd08767eadb0030e73eca47314fdf08f3f6b7c65c3da26ea"
+        },
+        "buildCache": {
+          "CMAKE_BUILD_TYPE": "Release",
+          "CMAKE_CXX_COMPILER": "/usr/lib/llvm-19/bin/clang++",
+          "CMAKE_CXX_COMPILER-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_AR": "/usr/bin/llvm-ar-19",
+          "CMAKE_CXX_COMPILER_AR-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS": "/usr/bin/clang-scan-deps-19",
+          "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-ADVANCED": "1",
+          "CMAKE_CXX_COMPILER_RANLIB": "/usr/bin/llvm-ranlib-19",
+          "CMAKE_CXX_COMPILER_RANLIB-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS": "-march=haswell -mtune=haswell",
+          "CMAKE_CXX_FLAGS-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_DEBUG": "-g",
+          "CMAKE_CXX_FLAGS_DEBUG-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG",
+          "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELEASE-ADVANCED": "1",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED": "1",
+          "CPPuddle_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/CPPuddle",
+          "FETCHCONTENT_SOURCE_DIR_KOKKOSSIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/kokkossimd-src",
+          "FETCHCONTENT_SOURCE_DIR_SVESIMD": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/svesimd-src",
+          "HPX_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/gcc/lib/cmake/HPX",
+          "HPX_IGNORE_COMPILER_COMPATIBILITY": "ON",
+          "OCTOTIGER_ARCH_FLAG": "-march=native",
+          "OCTOTIGER_CUDA_ARCH": "sm_50",
+          "OCTOTIGER_DISABLE_ILIST": "OFF",
+          "OCTOTIGER_KOKKOS_SIMD_EXTENSION": "DISCOVER",
+          "OCTOTIGER_KOKKOS_SIMD_LIBRARY": "KOKKOS",
+          "OCTOTIGER_SPACK_BUILD": "OFF",
+          "OCTOTIGER_SVE_LEN": "512",
+          "OCTOTIGER_TESTDATA_DIR": "/home/dmarce1/Documents/Codex/2026-10-18/so-ew/work/octotiger_wd_bugfix/octotiger-testdata",
+          "OCTOTIGER_THETA_MINIMUM": "0.34",
+          "OCTOTIGER_WITH_AVX": "OFF",
+          "OCTOTIGER_WITH_AVX2": "OFF",
+          "OCTOTIGER_WITH_AVX512": "OFF",
+          "OCTOTIGER_WITH_BLAST_TEST": "ON",
+          "OCTOTIGER_WITH_BOOST_MULTIPRECISION": "ON",
+          "OCTOTIGER_WITH_CUDA": "OFF",
+          "OCTOTIGER_WITH_CXX17": "OFF",
+          "OCTOTIGER_WITH_CXX20": "ON",
+          "OCTOTIGER_WITH_DOCU": "OFF",
+          "OCTOTIGER_WITH_FAST_FP_CONTRACT": "OFF",
+          "OCTOTIGER_WITH_GRAV_PAR": "OFF",
+          "OCTOTIGER_WITH_GRIDDIM": "8",
+          "OCTOTIGER_WITH_HIP": "OFF",
+          "OCTOTIGER_WITH_HYDRO_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_INTEL_GPU_WORKAROUND": "OFF",
+          "OCTOTIGER_WITH_KOKKOS": "OFF",
+          "OCTOTIGER_WITH_KOKKOS_HYDRO_TASKS": "1",
+          "OCTOTIGER_WITH_KOKKOS_MONOPOLE_TASKS": "1",
+          "OCTOTIGER_WITH_KOKKOS_MULTIPOLE_TASKS": "1",
+          "OCTOTIGER_WITH_LEGACY_Vc": "OFF",
+          "OCTOTIGER_WITH_MAX_NUMBER_FIELDS": "15",
+          "OCTOTIGER_WITH_MONOPOLE_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_MULTIPOLE_HOST_HPX_EXECUTOR": "OFF",
+          "OCTOTIGER_WITH_POLLING_EXECUTORS": "ON",
+          "OCTOTIGER_WITH_QUADMATH": "OFF",
+          "OCTOTIGER_WITH_RADIATION": "OFF",
+          "OCTOTIGER_WITH_TESTS": "ON",
+          "OCTOTIGER_WITH_UNBUFFERED_STDOUT": "OFF",
+          "OCTOTIGER_WITH_Vc": "ON",
+          "Silo_INCLUDE_DIR": "/usr/include",
+          "Silo_LIBRARY": "/usr/lib/x86_64-linux-gnu/libsiloh5.so",
+          "Vc_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc"
+        },
+        "compiler": "Ubuntu clang version 19.1.7 (++20250804090312+cd708029e0b2-1~exp1~20250804210325.79)",
+        "executableSha256": "e05e7df07fafcf3363fcb1b78a5383ead0f2d85ae46cb253699e6bcc52e3d614",
+        "finalDataSha256": "3380b8ae50bc1f98f09de9cb3599acc01f7975bedb47a316f214519a48dbd7d4",
+        "focusedCTest": "4/4 passed: model, sound speed, unchanged Silo diff, physical diagnostics",
+        "name": "clang_O3_full",
+        "physicalChecks": {
+          "com_preserved": true,
+          "density_amr_has_coarser_leaves": true,
+          "evolved_from_zero_time": true,
+          "fifty_finest_cells_across_diameter": true,
+          "initial_momenta_zero": true,
+          "limited_density_drift": true,
+          "limited_velocity_growth": true,
+          "mass_conserved": true,
+          "one_solar_mass": true,
+          "positive_effective_thermodynamics": true
+        },
+        "physicalChecksPassed": true,
+        "simulation": "A separate complete three-step run; two HPX workers, one IO-pool thread and one timer-pool thread."
+      }
+    ],
     "qbLoginAttempts": 0,
-    "scope": "Single-locality CPU, three timesteps only. Long QB evolution and distributed/GPU validation were not performed.",
+    "rotatingWD": {
+      "clang_O3_full": "Both Vc and legacy gravity runs passed all 24 existing norm checks with two HPX workers.",
+      "gcc_O3_full": "Both Vc and legacy gravity runs passed all 24 existing norm checks with two HPX workers."
+    },
+    "scope": "Three independent full CPU application builds using the same installed GCC-built HPX 2.0.0-rc1 and dependencies. Clang uses the compatibility override and the same libstdc++. These are local profiles, not the exact Jenkins compiler/dependency matrix. No GPU, distributed or long-term evolution validation.",
     "siloComparison": {
+      "additionalIndependentComparison": "GCC O3 versus Clang O3 browser output is empty and exits zero.",
       "command": [
         "browser",
         "--proper-exit-code",
@@ -241,9 +808,7 @@
         "INDEPENDENT_RUN/final.silo.data/0.silo"
       ],
       "failurePattern": "[.]vals|appears only in file",
-      "generatorVsIndependentRun": "passed, including all physical fields and mesh/object inventories",
-      "independentRun": "A separate three-step run with the same model, configuration and CPU kernels; source include grouping changed without numerical changes before the recorded generator build.",
-      "independentRunDataSha256": "9891a0410bfba4ba2d0186399946e2a0dda0c19e8c33e3b4d096fe62ae3fc0df"
+      "result": "Actual unchanged CTest Silo comparison passes for all three independent profiles; all fields remain included."
     }
   }
 }
