@@ -1,0 +1,2448 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-24T06:00:23.289010+00:00",
+  "purpose": "Candidate reference refresh after the independently controlled DRHODT dipole contraction correction",
+  "installation_performed": false,
+  "source": {
+    "generation_commit": "f274acf3339c2b81846b85ac58663cebf40c07d6",
+    "path": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes",
+    "current_head": "f274acf3339c2b81846b85ac58663cebf40c07d6",
+    "source_restored_clean_after_control": true,
+    "gravity_source": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/grid_fmm_fixed.cpp",
+      "sha256": "fec75434c8a0cfce0a9a7fd4b3605a4da23f0226caf4e5d8e5273928b7dcee34",
+      "bytes": 63601
+    },
+    "allowed_later_changes": "Test expectations and testdata may change; production source must still match generation commit."
+  },
+  "toolchain": {
+    "compiler": "/usr/bin/g++-13",
+    "compiler_version": "g++-13 (Ubuntu 13.4.0-10ubuntu1) 13.4.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "configure_command": [
+      "cmake",
+      "-S",
+      "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes",
+      "-B",
+      "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_C_COMPILER=/usr/bin/gcc-13",
+      "-DCMAKE_CXX_COMPILER=/usr/bin/g++-13",
+      "-DCMAKE_PREFIX_PATH=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu;/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183;/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common",
+      "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "-DHPX_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/cmake/HPX",
+      "-DKokkos_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/cmake/Kokkos",
+      "-DHPXKokkos_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/cmake/HPXKokkos",
+      "-DCPPuddle_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/cmake/CPPuddle",
+      "-DVc_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc",
+      "-DSilo_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common",
+      "-DBOOST_ROOT=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183",
+      "-DBoost_NO_BOOST_CMAKE=ON",
+      "-DBoost_NO_SYSTEM_PATHS=ON",
+      "-DBoost_INCLUDE_DIR=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/include",
+      "-DFETCHCONTENT_SOURCE_DIR_KOKKOSSIMD=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/kokkossimd-src",
+      "-DFETCHCONTENT_SOURCE_DIR_SVESIMD=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/build/gcc/octotiger/_deps/svesimd-src",
+      "-DOCTOTIGER_WITH_CXX20=ON",
+      "-DOCTOTIGER_WITH_CUDA=OFF",
+      "-DOCTOTIGER_WITH_HIP=OFF",
+      "-DOCTOTIGER_WITH_KOKKOS=ON",
+      "-DOCTOTIGER_WITH_HYDRO_HOST_HPX_EXECUTOR=ON",
+      "-DOCTOTIGER_WITH_MONOPOLE_HOST_HPX_EXECUTOR=ON",
+      "-DOCTOTIGER_WITH_MULTIPOLE_HOST_HPX_EXECUTOR=ON",
+      "-DOCTOTIGER_WITH_RADIATION=OFF",
+      "-DOCTOTIGER_WITH_TESTS=ON",
+      "-DOCTOTIGER_WITH_BLAST_TEST=ON",
+      "-DOCTOTIGER_WITH_GRIDDIM=8",
+      "-DOCTOTIGER_TESTDATA_DIR=/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata",
+      "-DBoost_ATOMIC_LIBRARY_RELEASE=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib/libboost_atomic.so.1.83.0",
+      "-DBoost_FILESYSTEM_LIBRARY_RELEASE=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib/libboost_filesystem.so.1.83.0",
+      "-DBoost_PROGRAM_OPTIONS_LIBRARY_RELEASE=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib/libboost_program_options.so.1.83.0",
+      "-DBoost_SYSTEM_LIBRARY_RELEASE=/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib/libboost_system.so.1.83.0"
+    ],
+    "configure_artifact": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/configure_command.json",
+      "sha256": "369c57af9e5e45f7c48f591e6f1f1226a6c2a390f4ef76ac1809a643730e5c4d",
+      "bytes": 2825
+    },
+    "cache": {
+      "CMAKE_BUILD_TYPE": "Release",
+      "CMAKE_CXX_COMPILER": "/usr/bin/g++-13",
+      "CMAKE_CXX_COMPILER_AR": "/usr/bin/gcc-ar-13",
+      "CMAKE_CXX_COMPILER_RANLIB": "/usr/bin/gcc-ranlib-13",
+      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g",
+      "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+      "CMAKE_C_COMPILER": "/usr/bin/gcc-13",
+      "CMAKE_C_COMPILER_AR": "/usr/bin/gcc-ar-13",
+      "CMAKE_C_COMPILER_RANLIB": "/usr/bin/gcc-ranlib-13",
+      "CMAKE_C_FLAGS": "",
+      "CMAKE_C_FLAGS_DEBUG": "-g",
+      "CMAKE_C_FLAGS_MINSIZEREL": "-Os -DNDEBUG",
+      "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_C_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG",
+      "HPX_CXX_COMPILER": "/usr/bin/g++-13",
+      "HPX_CXX_COMPILER_ID": "GNU",
+      "HPX_CXX_COMPILER_VERSION": "13.4.0",
+      "HPX_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/cmake/HPX",
+      "HPX_GIT_COMMIT": "c8a2b59c1100ac975222927b2a85192f406e1ba2",
+      "Kokkos_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/cmake/Kokkos",
+      "OCTOTIGER_ARCH_FLAG": "-march=native",
+      "OCTOTIGER_CUDA_ARCH": "sm_50",
+      "OCTOTIGER_DISABLE_ILIST": "OFF",
+      "OCTOTIGER_KOKKOS_SIMD_EXTENSION": "DISCOVER",
+      "OCTOTIGER_KOKKOS_SIMD_LIBRARY": "KOKKOS",
+      "OCTOTIGER_SPACK_BUILD": "OFF",
+      "OCTOTIGER_SVE_LEN": "512",
+      "OCTOTIGER_TESTDATA_DIR": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/octotiger-testdata",
+      "OCTOTIGER_THETA_MINIMUM": "0.34",
+      "OCTOTIGER_WITH_AVX": "OFF",
+      "OCTOTIGER_WITH_AVX2": "OFF",
+      "OCTOTIGER_WITH_AVX512": "OFF",
+      "OCTOTIGER_WITH_BLAST_TEST": "ON",
+      "OCTOTIGER_WITH_BOOST_MULTIPRECISION": "OFF",
+      "OCTOTIGER_WITH_CUDA": "OFF",
+      "OCTOTIGER_WITH_CXX17": "OFF",
+      "OCTOTIGER_WITH_CXX20": "ON",
+      "OCTOTIGER_WITH_DOCU": "OFF",
+      "OCTOTIGER_WITH_FAST_FP_CONTRACT": "OFF",
+      "OCTOTIGER_WITH_GRAV_PAR": "OFF",
+      "OCTOTIGER_WITH_GRIDDIM": "8",
+      "OCTOTIGER_WITH_HIP": "OFF",
+      "OCTOTIGER_WITH_HYDRO_HOST_HPX_EXECUTOR": "ON",
+      "OCTOTIGER_WITH_INTEL_GPU_WORKAROUND": "OFF",
+      "OCTOTIGER_WITH_KOKKOS": "ON",
+      "OCTOTIGER_WITH_KOKKOS_HYDRO_TASKS": "1",
+      "OCTOTIGER_WITH_KOKKOS_MONOPOLE_TASKS": "1",
+      "OCTOTIGER_WITH_KOKKOS_MULTIPOLE_TASKS": "1",
+      "OCTOTIGER_WITH_LEGACY_Vc": "OFF",
+      "OCTOTIGER_WITH_MAX_NUMBER_FIELDS": "15",
+      "OCTOTIGER_WITH_MONOPOLE_HOST_HPX_EXECUTOR": "ON",
+      "OCTOTIGER_WITH_MULTIPOLE_HOST_HPX_EXECUTOR": "ON",
+      "OCTOTIGER_WITH_POLLING_EXECUTORS": "ON",
+      "OCTOTIGER_WITH_QUADMATH": "ON",
+      "OCTOTIGER_WITH_RADIATION": "OFF",
+      "OCTOTIGER_WITH_TESTS": "ON",
+      "OCTOTIGER_WITH_UNBUFFERED_STDOUT": "OFF",
+      "OCTOTIGER_WITH_Vc": "ON",
+      "Silo_BROWSER": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+      "Silo_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common",
+      "Silo_INCLUDE_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/include",
+      "Silo_LIBRARY": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/libsiloh5.so",
+      "Vc_DIR": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/cmake/Vc",
+      "Vc_IMPL": "auto",
+      "Vc_LIB_MVEC": "/usr/lib/x86_64-linux-gnu/libmvec.so",
+      "Vc_distributor_id": "UBUNTU",
+      "Vc_distributor_release": "26.04",
+      "Vc_lsb_release": "/usr/bin/lsb_release",
+      "CMAKE_CACHEFILE_DIR": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build",
+      "CMAKE_CACHE_MAJOR_VERSION": "4",
+      "CMAKE_CACHE_MINOR_VERSION": "2",
+      "CMAKE_CACHE_PATCH_VERSION": "3",
+      "CMAKE_COMMAND": "/usr/bin/cmake",
+      "CMAKE_CPACK_COMMAND": "/usr/bin/cpack",
+      "CMAKE_CTEST_COMMAND-ADVANCED": "1",
+      "CMAKE_CTEST_COMMAND": "/usr/bin/ctest",
+      "CMAKE_CXX_COMPILER-ADVANCED": "1",
+      "CMAKE_CXX_COMPILER_AR-ADVANCED": "1",
+      "CMAKE_CXX_COMPILER_RANLIB-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_DEBUG-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_RELEASE-ADVANCED": "1",
+      "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED": "1",
+      "CMAKE_C_COMPILER-ADVANCED": "1",
+      "CMAKE_C_COMPILER_AR-ADVANCED": "1",
+      "CMAKE_C_COMPILER_RANLIB-ADVANCED": "1",
+      "CMAKE_C_FLAGS-ADVANCED": "1",
+      "CMAKE_C_FLAGS_DEBUG-ADVANCED": "1",
+      "CMAKE_C_FLAGS_MINSIZEREL-ADVANCED": "1",
+      "CMAKE_C_FLAGS_RELEASE-ADVANCED": "1",
+      "CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED": "1",
+      "HPX_EXPORT_TARGETS": "hpx;wrap_main;init;plugin;component;auto_wrap_main;component_storage_component;unordered_component;partitioned_vector_component;iostreams_component;parcel_coalescing;io_counters_component;memory_counters_component;process_component;supervision_dispatch_component;hydrolib",
+      "Silo_BROWSER-ADVANCED": "1",
+      "Silo_INCLUDE_DIR-ADVANCED": "1",
+      "Silo_LIBRARY-ADVANCED": "1",
+      "Vc_HAVE_AVX_SINCOS": "1",
+      "Vc_HAVE_SSE_SINCOS": "1",
+      "Vc_lsb_release-ADVANCED": "1"
+    },
+    "linked_libraries": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/linked_libraries.txt",
+      "sha256": "235b3600566481e2e8ba232d43de1b7bb2f89b5cd28738e087e8177c48cd9bd1",
+      "bytes": 4185,
+      "text": "\tlinux-vdso.so.1 (0x00007e76cd5f5000)\n\tlibhpx_octolib.so => /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/libhpx_octolib.so (0x00007e76ccc00000)\n\tlibhpx_hydrolib.so => /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/libhpx_hydrolib.so (0x00007e76cca92000)\n\tlibhpx_optionslib.so => /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/libhpx_optionslib.so (0x00007e76cd458000)\n\tlibhpx.so.2 => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/libhpx.so.2 (0x00007e76cc000000)\n\tlibhpx_core.so => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/libhpx_core.so (0x00007e76cbc00000)\n\tlibstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007e76cb800000)\n\tlibgcc_s.so.1 => /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007e76cca2c000)\n\tlibc.so.6 => /usr/lib/x86_64-linux-gnu/libc.so.6 (0x00007e76cb400000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007e76cd5f7000)\n\tlibboost_program_options.so.1.83.0 => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib/libboost_program_options.so.1.83.0 (0x00007e76cbb90000)\n\tlibquadmath.so.0 => /usr/lib/x86_64-linux-gnu/libquadmath.so.0 (0x00007e76cbfb6000)\n\tlibsiloh5.so.412 => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/libsiloh5.so.412 (0x00007e76cb678000)\n\tlibm.so.6 => /usr/lib/x86_64-linux-gnu/libm.so.6 (0x00007e76cb2da000)\n\tlibhwloc.so.15 => /usr/lib/x86_64-linux-gnu/libhwloc.so.15 (0x00007e76cbb2b000)\n\tlibhdf5_serial.so.103 => /usr/lib/x86_64-linux-gnu/libhdf5_serial.so.103 (0x00007e76cae00000)\n\tlibudev.so.1 => /usr/lib/x86_64-linux-gnu/libudev.so.1 (0x00007e76cbae3000)\n\tlibcrypto.so.3 => /usr/lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007e76ca600000)\n\tlibcurl.so.4 => /usr/lib/x86_64-linux-gnu/libcurl.so.4 (0x00007e76cb1e6000)\n\tlibsz.so.2 => /usr/lib/x86_64-linux-gnu/libsz.so.2 (0x00007e76cd448000)\n\tlibz.so.1 => /usr/lib/x86_64-linux-gnu/libz.so.1 (0x00007e76cca0e000)\n\tlibzstd.so.1 => /usr/lib/x86_64-linux-gnu/libzstd.so.1 (0x00007e76cad3d000)\n\tlibnghttp2.so.14 => /usr/lib/x86_64-linux-gnu/libnghttp2.so.14 (0x00007e76cbab9000)\n\tlibidn2.so.0 => /usr/lib/x86_64-linux-gnu/libidn2.so.0 (0x00007e76cb656000)\n\tlibrtmp.so.1 => /usr/lib/x86_64-linux-gnu/librtmp.so.1 (0x00007e76cc9ee000)\n\tlibldap.so.2 => /usr/lib/x86_64-linux-gnu/libldap.so.2 (0x00007e76cb183000)\n\tliblber.so.2 => /usr/lib/x86_64-linux-gnu/liblber.so.2 (0x00007e76cd433000)\n\tlibssh2.so.1 => /usr/lib/x86_64-linux-gnu/libssh2.so.1 (0x00007e76cacf0000)\n\tlibpsl.so.5 => /usr/lib/x86_64-linux-gnu/libpsl.so.5 (0x00007e76cbfa1000)\n\tlibssl.so.3 => /usr/lib/x86_64-linux-gnu/libssl.so.3 (0x00007e76ca4ef000)\n\tlibgssapi_krb5.so.2 => /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007e76cac98000)\n\tlibbrotlidec.so.1 => /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007e76cbaaa000)\n\tlibunistring.so.5 => /usr/lib/x86_64-linux-gnu/libunistring.so.5 (0x00007e76ca308000)\n\tlibgnutls.so.30 => /usr/lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007e76ca000000)\n\tlibhogweed.so.6 => /usr/lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007e76cac4d000)\n\tlibnettle.so.8 => /usr/lib/x86_64-linux-gnu/libnettle.so.8 (0x00007e76ca2b1000)\n\tlibgmp.so.10 => /usr/lib/x86_64-linux-gnu/libgmp.so.10 (0x00007e76ca22b000)\n\tlibsasl2.so.2 => /usr/lib/x86_64-linux-gnu/libsasl2.so.2 (0x00007e76cb63b000)\n\tlibkrb5.so.3 => /usr/lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007e76c9f34000)\n\tlibk5crypto.so.3 => /usr/lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007e76cac21000)\n\tlibcom_err.so.2 => /usr/lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007e76cbaa4000)\n\tlibkrb5support.so.0 => /usr/lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007e76cb62e000)\n\tlibbrotlicommon.so.1 => /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x00007e76c9f11000)\n\tlibp11-kit.so.0 => /usr/lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007e76c9d36000)\n\tlibtasn1.so.6 => /usr/lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007e76ca214000)\n\tlibkeyutils.so.1 => /usr/lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007e76cb627000)\n\tlibresolv.so.2 => /usr/lib/x86_64-linux-gnu/libresolv.so.2 (0x00007e76c9d23000)\n\tlibffi.so.8 => /usr/lib/x86_64-linux-gnu/libffi.so.8 (0x00007e76c9d12000)\n"
+    },
+    "current_build": {
+      "executable": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+        "sha256": "34f1d90969cf13dc8289509f97d127ad6fab313f311c960334e4e0a8cdef37b8",
+        "bytes": 1804848
+      },
+      "octolib": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/libhpx_octolib.so",
+        "sha256": "dbf10337eb641069393bab8fa26a74f42463edc8a7c41071c2dc35ee4418dfc2",
+        "bytes": 11383088
+      },
+      "identity_scope": "Current artifact identities; generation and restored-control hashes are retained separately."
+    },
+    "hpx": {
+      "release": "v2.0.0",
+      "commit": "c8a2b59c1100ac975222927b2a85192f406e1ba2",
+      "release_url": "https://github.com/TheHPXProject/hpx/releases/tag/v2.0.0"
+    }
+  },
+  "execution": {
+    "cpus": [
+      14,
+      15
+    ],
+    "hpx_worker_threads": 2,
+    "localities": 1,
+    "environment_overrides": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "HPX_NUM_WORKER_THREADS": "2",
+      "HPX_COMMANDLINE_OPTIONS": "--hpx:ini=hpx.bind!=none"
+    },
+    "ld_library_path_prefix": [
+      "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib",
+      "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib",
+      "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib"
+    ],
+    "environment_scope": "Explicit driver overrides and prefix; inherited environment suffix was not recorded.",
+    "driver": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/check_references.py",
+      "sha256": "402b8650b673002b556f985ce4ffa5e5eae799109dccc7bc9ce14026401374e1",
+      "bytes": 8092,
+      "text": "import hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport re\nimport resource\nimport shutil\nimport subprocess\nimport time\n\nout = Path(__file__).resolve().parent\nroot = out.parents[1]\nsource = root / 'worktrees/fmm_fixes'\nbuild = out / 'build'\ncase_root = out / 'reference_control'\ncase_root.mkdir(exist_ok=True)\ndeps = root / 'hpx2rcDependencies/install'\nos.sched_setaffinity(0, {14, 15})\nresource.setrlimit(resource.RLIMIT_CORE, (0, 0))\nenv = os.environ.copy()\nenv.update(OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1',\n           HPX_NUM_WORKER_THREADS='2', HPX_COMMANDLINE_OPTIONS='--hpx:ini=hpx.bind!=none')\nenv['LD_LIBRARY_PATH'] = ':'.join(str(deps / p) for p in\n    ('hpx_2_0_0_cpu/lib', 'boost_183/lib', 'common/lib')) + ':' + env.get('LD_LIBRARY_PATH', '')\nreceipt = {'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=source, text=True).strip(),\n           'cpus': [14, 15], 'runs': {}, 'comparisons': {}}\n\ndef sha(path):\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\ndef save():\n    (case_root / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\\n')\n\ndef run(name, command, cwd):\n    started = time.monotonic()\n    logpath = case_root / (name + '.log')\n    with logpath.open('w') as log:\n        result = subprocess.run(command, cwd=cwd, env=env, stdout=log, stderr=subprocess.STDOUT)\n    entry = {'command': command, 'cwd': str(cwd), 'returncode': result.returncode,\n             'seconds': time.monotonic() - started, 'log_sha256': sha(logpath)}\n    receipt['runs'][name] = entry\n    save()\n    print(name, result.returncode, round(entry['seconds'], 2), flush=True)\n    assert result.returncode == 0, name\n    return logpath.read_text()\n\ndef norms(log):\n    matches = re.findall(r'^\\s*(rho|egas|tau|pot|sx|sy|sz|spc_[1-5])\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s*$', log, re.M)\n    result = {field: [a, b, c] for field, a, b, c in matches}\n    assert len(result) == 12, result\n    return result\n\ndef simulate(name, backend, wd=False):\n    cwd = case_root / name\n    cwd.mkdir()\n    shutil.copyfile(case_root / 'initial/rotating_star.bin', cwd / 'rotating_star.bin')\n    command = [str(build / 'octotiger'), '--config_file=' + str(source / 'test_problems/rotating_star/rotating_star.ini'),\n               '--monopole_host_kernel_type=' + backend, '--multipole_host_kernel_type=' + backend,\n               '--monopole_device_kernel_type=OFF', '--multipole_device_kernel_type=OFF',\n               '--hydro_device_kernel_type=OFF', '--hydro_host_kernel_type=LEGACY']\n    if wd:\n        command.append('--eos=WD')\n    log = run(name, command, cwd)\n    receipt['runs'][name].update(norms=norms(log), silo_sha256=sha(cwd / 'final.silo.data/0.silo'))\n    save()\n\ndef star(name):\n    cwd = case_root / name\n    cwd.mkdir()\n    command = [str(build / 'octotiger'), '--config_file=' + str(source / 'test_problems/star/star.ini'),\n               '--disable_diagnostics=on', '--monopole_host_kernel_type=LEGACY', '--multipole_host_kernel_type=LEGACY',\n               '--monopole_device_kernel_type=OFF', '--multipole_device_kernel_type=OFF',\n               '--hydro_device_kernel_type=OFF', '--hydro_host_kernel_type=LEGACY',\n               '--amr_boundary_kernel_type=AMR_LEGACY']\n    log = run(name, command, cwd)\n    receipt['runs'][name].update(silo_sha256=sha(cwd / 'final.silo.data/0.silo'),\n                                 last_step=re.findall(r'^TS 1.::.*$', log, re.M)[-1])\n    save()\n\ndef compare(name, left, right, is_star=False):\n    exclusions = 'idle_rate,locality,/_hdf5libinfo,/_silolibinfo'\n    if not is_star:\n        exclusions = 'lx,ly,lz,' + exclusions\n    command = [str(deps / 'common/bin/browser'), '-e', 'diff', '-q', '-x', '1.0', '-R', '1.0e-11' if is_star else '1.0e-12',\n               '-E', exclusions, str(left), str(right)]\n    log = run(name, command, case_root)\n    pattern = r'(egas|gx|gy|gz|pot|rho_1|sx|sy|sz|tau)[.]vals|appears only in file' if is_star else r'[.]vals|appears only in file'\n    passed = not re.search(pattern, log)\n    receipt['comparisons'][name] = {'passed': passed, 'command': command}\n    save()\n    assert passed, name\n\nfull = json.loads((out / 'full.json').read_text())\nassert full['tests'] == 308 and full['source_clean']\nassert not subprocess.check_output(['git', 'status', '--porcelain'], cwd=source)\ninitial = case_root / 'initial'\ninitial.mkdir(exist_ok=True)\nrun('generate_initial', [str(build / 'tools/gen_rotating_star_init')], initial)\nreceipt['initial_sha256'] = sha(initial / 'rotating_star.bin')\nreceipt['fixed_executable_sha256'] = sha(build / 'octotiger')\nlibrary = build / 'libhpx_octolib.so'\nreceipt['fixed_octolib_sha256'] = sha(library)\nsimulate('fixed_legacy', 'LEGACY')\nsimulate('fixed_vc', 'VC')\nsimulate('fixed_legacy_wd', 'LEGACY', wd=True)\nstar('fixed_star')\nassert receipt['runs']['fixed_legacy']['norms'] == receipt['runs']['fixed_vc']['norms']\ncompare('fixed_backend_agreement', case_root / 'fixed_legacy/final.silo.data/0.silo',\n        case_root / 'fixed_vc/final.silo.data/0.silo')\n\npath = source / 'src/grid_fmm.cpp'\nfixed = path.read_bytes()\nold = fixed\nfor before, after, count in ((b'm0(i) * D[ab_idx_map[i]]', b'm0(a) * D[ab_idx_map[i]]', 3),\n                             (b'm1(i) * D[ab_idx_map[i]]', b'm1(a) * D[ab_idx_map[i]]', 1)):\n    assert old.count(before) == count\n    old = old.replace(before, after)\n(case_root / 'grid_fmm_fixed.cpp').write_bytes(fixed)\ntry:\n    path.write_bytes(old)\n    patch = subprocess.check_output(['git', 'diff', '--', 'src/grid_fmm.cpp'], cwd=source)\n    (case_root / 'old_dipole_only.patch').write_bytes(patch)\n    receipt['old_dipole_patch_sha256'] = hashlib.sha256(patch).hexdigest()\n    run('build_old_dipole', ['cmake', '--build', str(build), '--parallel', '2', '--target', 'octotiger'], source)\n    receipt['old_dipole_octolib_sha256'] = sha(library)\n    assert receipt['old_dipole_octolib_sha256'] != receipt['fixed_octolib_sha256']\n    simulate('old_legacy', 'LEGACY')\n    simulate('old_legacy_wd', 'LEGACY', wd=True)\n    star('old_star')\n    for old_name, fixed_name in (('old_legacy', 'fixed_legacy'), ('old_legacy_wd', 'fixed_legacy_wd')):\n        assert receipt['runs'][old_name]['norms'] != receipt['runs'][fixed_name]['norms']\n    compare('old_reference_reproduced', root / 'output/scf_fix_validation_20261123/full_suite/testdata/rotating_star_without_am.silo',\n            case_root / 'old_legacy/final.silo.data/0.silo')\n    compare('old_star_reference_reproduced', root / 'output/scf_fix_validation_20261123/full_suite/testdata/star_with_eos_ipr.silo',\n            case_root / 'old_star/final.silo.data/0.silo', is_star=True)\n    star_cmake = (source / 'test_problems/star/CMakeLists.txt').read_text()\n    star_checks = re.findall(r'PASS_REGULAR_EXPRESSION \"([^\"]+)\"', star_cmake)\n    assert len(star_checks) == 7\n    receipt['runs']['old_star']['existing_step_checks_pass'] = all(\n        re.search(check, (case_root / 'old_star.log').read_text()) for check in star_checks)\n    save()\n    assert receipt['runs']['old_star']['existing_step_checks_pass']\n    cmake = (source / 'test_problems/rotating_star/CMakeLists.txt').read_text()\n    grid8 = cmake.split('if (OCTOTIGER_WITH_GRIDDIM EQUAL 8)')[1].split('elseif')[0]\n    wd = cmake.split('# Rotating star test with different equation of state (eos=wd)')[1]\n    for name, block in (('old_legacy', grid8), ('old_legacy_wd', wd)):\n        log = (case_root / (name + '.log')).read_text()\n        checks = re.findall(r'set\\(\\w+_regex \"([^\"]+)\"\\)', block)\n        assert len(checks) == 12\n        receipt['runs'][name]['existing_norm_checks_pass'] = all(re.search(check, log) for check in checks)\n        save()\n        assert receipt['runs'][name]['existing_norm_checks_pass'], name\nfinally:\n    path.write_bytes(fixed)\n    run('restore_fixed_build', ['cmake', '--build', str(build), '--parallel', '2'], source)\n    receipt['source_restored_clean'] = not subprocess.check_output(['git', 'status', '--porcelain'], cwd=source)\n    receipt['restored_octolib_sha256'] = sha(library)\n    save()\n    assert receipt['source_restored_clean']\n"
+    }
+  },
+  "original_testdata_commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+  "files": {
+    "rotating_star_without_am.silo": {
+      "original_reference": {
+        "commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+        "filename": "rotating_star_without_am.silo",
+        "git_blob": "9ec90faed36293855148374dd37890d345fb78c8",
+        "sha256": "fc10767774c0b9c182517c811239d912b8c016a12846f269ad43104a4b5224aa",
+        "bytes": 29576216
+      },
+      "candidate": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy/final.silo.data/0.silo",
+        "sha256": "2be3bea98450f3ed90f6f5075c6d2c7eff5faa67c46c3d67a961093446f3aef4",
+        "bytes": 29572992
+      },
+      "configuration": {
+        "path": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+        "sha256": "ff3bb3c9bf6214894d87cdedd5750868e71ed608e04be86422c2cfefdcbd7026",
+        "bytes": 167,
+        "text": "problem=rotating_star\nxscale=1.5\nodt=0.1\nstop_time=0.1\nmax_level=3\ninput_file=rotating_star.bin\nn_species=5\ndisable_diagnostics=on\nradiation=off\nclight_retard=10.0\n\n\n\n",
+        "repository_path": "test_problems/rotating_star/rotating_star.ini"
+      },
+      "generation": {
+        "command": [
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+          "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+          "--monopole_host_kernel_type=LEGACY",
+          "--multipole_host_kernel_type=LEGACY",
+          "--monopole_device_kernel_type=OFF",
+          "--multipole_device_kernel_type=OFF",
+          "--hydro_device_kernel_type=OFF",
+          "--hydro_host_kernel_type=LEGACY"
+        ],
+        "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy",
+        "returncode": 0,
+        "seconds": 70.12549057789147,
+        "log_sha256": "157cb106fff7a8cb26ce9a3064f1faa00cd6f3f4e56e8ce08a8cf589545f3196",
+        "norms": {
+          "rho": [
+            "3.173837e-05",
+            "2.000561e-04",
+            "5.693978e-03"
+          ],
+          "egas": [
+            "5.814051e-06",
+            "4.740748e-05",
+            "1.595588e-03"
+          ],
+          "tau": [
+            "1.377745e-05",
+            "8.245744e-05",
+            "2.035302e-03"
+          ],
+          "pot": [
+            "5.264233e-03",
+            "3.940785e-02",
+            "7.783497e-01"
+          ],
+          "sx": [
+            "7.395988e-06",
+            "6.126461e-05",
+            "3.376647e-03"
+          ],
+          "sy": [
+            "7.395988e-06",
+            "6.126461e-05",
+            "3.376647e-03"
+          ],
+          "sz": [
+            "5.153529e-06",
+            "6.025423e-05",
+            "3.590974e-03"
+          ],
+          "spc_1": [
+            "3.173837e-05",
+            "2.000561e-04",
+            "5.693978e-03"
+          ],
+          "spc_2": [
+            "7.825168e-13",
+            "3.102090e-12",
+            "5.175644e-11"
+          ],
+          "spc_3": [
+            "0.000000e+00",
+            "0.000000e+00",
+            "0.000000e+00"
+          ],
+          "spc_4": [
+            "0.000000e+00",
+            "0.000000e+00",
+            "0.000000e+00"
+          ],
+          "spc_5": [
+            "0.000000e+00",
+            "0.000000e+00",
+            "0.000000e+00"
+          ]
+        },
+        "silo_sha256": "2be3bea98450f3ed90f6f5075c6d2c7eff5faa67c46c3d67a961093446f3aef4",
+        "log": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy.log",
+          "sha256": "157cb106fff7a8cb26ce9a3064f1faa00cd6f3f4e56e8ce08a8cf589545f3196",
+          "bytes": 15887
+        },
+        "raw_silo": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy/final.silo.data/0.silo",
+          "sha256": "2be3bea98450f3ed90f6f5075c6d2c7eff5faa67c46c3d67a961093446f3aef4",
+          "bytes": 29572992
+        }
+      },
+      "old_dipole_control": {
+        "command": [
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+          "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+          "--monopole_host_kernel_type=LEGACY",
+          "--multipole_host_kernel_type=LEGACY",
+          "--monopole_device_kernel_type=OFF",
+          "--multipole_device_kernel_type=OFF",
+          "--hydro_device_kernel_type=OFF",
+          "--hydro_host_kernel_type=LEGACY"
+        ],
+        "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy",
+        "returncode": 0,
+        "seconds": 69.06303150393069,
+        "log_sha256": "d774c7e0e14495b061579d10130ff03835eba231ace8510345b1361471e8b060",
+        "norms": {
+          "rho": [
+            "3.173643e-05",
+            "2.000538e-04",
+            "5.694083e-03"
+          ],
+          "egas": [
+            "5.812879e-06",
+            "4.740067e-05",
+            "1.595715e-03"
+          ],
+          "tau": [
+            "1.377465e-05",
+            "8.244716e-05",
+            "2.035439e-03"
+          ],
+          "pot": [
+            "5.264233e-03",
+            "3.940785e-02",
+            "7.783497e-01"
+          ],
+          "sx": [
+            "7.396100e-06",
+            "6.126571e-05",
+            "3.376593e-03"
+          ],
+          "sy": [
+            "7.396592e-06",
+            "6.126777e-05",
+            "3.376693e-03"
+          ],
+          "sz": [
+            "5.153324e-06",
+            "6.025281e-05",
+            "3.590998e-03"
+          ],
+          "spc_1": [
+            "3.173643e-05",
+            "2.000538e-04",
+            "5.694083e-03"
+          ],
+          "spc_2": [
+            "7.825153e-13",
+            "3.102085e-12",
+            "5.175639e-11"
+          ],
+          "spc_3": [
+            "0.000000e+00",
+            "0.000000e+00",
+            "0.000000e+00"
+          ],
+          "spc_4": [
+            "0.000000e+00",
+            "0.000000e+00",
+            "0.000000e+00"
+          ],
+          "spc_5": [
+            "0.000000e+00",
+            "0.000000e+00",
+            "0.000000e+00"
+          ]
+        },
+        "silo_sha256": "926632474af1ac62c12e9ce4f8aaa7b2e443ec91a41792bdeb4e321cd1685ddb",
+        "existing_norm_checks_pass": true,
+        "log": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy.log",
+          "sha256": "d774c7e0e14495b061579d10130ff03835eba231ace8510345b1361471e8b060",
+          "bytes": 15887
+        },
+        "raw_silo": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy/final.silo.data/0.silo",
+          "sha256": "926632474af1ac62c12e9ce4f8aaa7b2e443ec91a41792bdeb4e321cd1685ddb",
+          "bytes": 29572768
+        }
+      },
+      "old_reference_comparison": {
+        "passed": true,
+        "command": [
+          "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+          "-e",
+          "diff",
+          "-q",
+          "-x",
+          "1.0",
+          "-R",
+          "1.0e-12",
+          "-E",
+          "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+          "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/rotating_star_without_am.silo",
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy/final.silo.data/0.silo"
+        ],
+        "run": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/rotating_star_without_am.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy/final.silo.data/0.silo"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control",
+          "returncode": 0,
+          "seconds": 2.9280990690458566,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "log": {
+            "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_reference_reproduced.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0
+          }
+        },
+        "failure_pattern": "[.]vals|appears only in file"
+      },
+      "old_expectations_passed": true
+    },
+    "star_with_eos_ipr.silo": {
+      "original_reference": {
+        "commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+        "filename": "star_with_eos_ipr.silo",
+        "git_blob": "bf72d5d1a0e2668473f11f78e2e52da36ca0dfb8",
+        "sha256": "a2de646994b22c0d042e747561775a2eda8584ddd410d585c8b72e3fcd14cff5",
+        "bytes": 13862356
+      },
+      "candidate": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_star/final.silo.data/0.silo",
+        "sha256": "ce5be48fea85ec85eec405ae236ac2e14b86267ddecb887bd41014f6219d9d45",
+        "bytes": 13867752
+      },
+      "configuration": {
+        "path": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/star/star.ini",
+        "sha256": "90baf9d3a34073dd13127929c6146c85881d574905d8c8d33ee6c93d46764862",
+        "bytes": 452,
+        "text": "problem=star\neos=ipr\nstop_time=90\ntheta=0.35\nipr_nr_maxiter=75\nipr_nr_tol=1e-12\nipr_test=on\n#unigrid=on\nxscale=100\nstar_rmax=50\nstar_alpha=3.024\nstar_dr=0.1953125\nstar_rho_center=0.025\ncode_to_g=1.99e+33\nstar_rho_out=1.7e-14\nstar_egas_out=3.28e-14\ncode_to_cm=6.96e+10\nmax_level=4\natomic_number=1.38\natomic_mass=2.13\nX=0.46\nZ=0.0\nodt=5.0\nn_species=1\nrho_floor=1.7e-14\ntau_floor=5.36e-09\nipr_eint_floor=3.28e-14\nstar_n=4.1\ncdisc_detect=off\n\nstop_step=10\n",
+        "repository_path": "test_problems/star/star.ini"
+      },
+      "generation": {
+        "command": [
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+          "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/star/star.ini",
+          "--disable_diagnostics=on",
+          "--monopole_host_kernel_type=LEGACY",
+          "--multipole_host_kernel_type=LEGACY",
+          "--monopole_device_kernel_type=OFF",
+          "--multipole_device_kernel_type=OFF",
+          "--hydro_device_kernel_type=OFF",
+          "--hydro_host_kernel_type=LEGACY",
+          "--amr_boundary_kernel_type=AMR_LEGACY"
+        ],
+        "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_star",
+        "returncode": 0,
+        "seconds": 95.68802598700859,
+        "log_sha256": "00218a6d549faafd0092ad851f2c1569c9a7da877b0a8e3bbf2dd7c52e5a6fbe",
+        "silo_sha256": "ce5be48fea85ec85eec405ae236ac2e14b86267ddecb887bd41014f6219d9d45",
+        "last_step": "TS 11:: t: 7.352407e+00, dt: 6.715320e-01, time_elapsed: 7.904836e+00, rotational_time: 7.352407e+00, x: -7.812500e-01, y: 7.812500e-01, z: -7.812500e-01, a: 9.307077e-01, ur: 1.680619e-02, ul: 1.680619e-02, vr: 6.075094e-02, vl: 6.075094e-02, dim: 1, ngrids: 201, leafs: 176, amr_boundaries: 312",
+        "log": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_star.log",
+          "sha256": "00218a6d549faafd0092ad851f2c1569c9a7da877b0a8e3bbf2dd7c52e5a6fbe",
+          "bytes": 15886
+        },
+        "raw_silo": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_star/final.silo.data/0.silo",
+          "sha256": "ce5be48fea85ec85eec405ae236ac2e14b86267ddecb887bd41014f6219d9d45",
+          "bytes": 13867752
+        }
+      },
+      "old_dipole_control": {
+        "command": [
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+          "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/star/star.ini",
+          "--disable_diagnostics=on",
+          "--monopole_host_kernel_type=LEGACY",
+          "--multipole_host_kernel_type=LEGACY",
+          "--monopole_device_kernel_type=OFF",
+          "--multipole_device_kernel_type=OFF",
+          "--hydro_device_kernel_type=OFF",
+          "--hydro_host_kernel_type=LEGACY",
+          "--amr_boundary_kernel_type=AMR_LEGACY"
+        ],
+        "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star",
+        "returncode": 0,
+        "seconds": 94.3564825868234,
+        "log_sha256": "edb9e70a6f62b9a7670526098d337272799a3a2661e13b6d0a316bdb85ef6451",
+        "silo_sha256": "e3a35a8476528bbe39e8f5010c0e81c1460e760568baa7e8507d13e92553a898",
+        "last_step": "TS 11:: t: 7.352407e+00, dt: 6.715325e-01, time_elapsed: 7.870810e+00, rotational_time: 7.352407e+00, x: 2.343750e+00, y: 7.812500e-01, z: 7.812500e-01, a: 9.307070e-01, ur: 1.680614e-02, ul: 1.365091e-02, vr: 6.075061e-02, vl: 2.912973e-02, dim: 0, ngrids: 201, leafs: 176, amr_boundaries: 312",
+        "existing_step_checks_pass": true,
+        "log": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star.log",
+          "sha256": "edb9e70a6f62b9a7670526098d337272799a3a2661e13b6d0a316bdb85ef6451",
+          "bytes": 15885
+        },
+        "raw_silo": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star/final.silo.data/0.silo",
+          "sha256": "e3a35a8476528bbe39e8f5010c0e81c1460e760568baa7e8507d13e92553a898",
+          "bytes": 13866552
+        }
+      },
+      "old_reference_comparison": {
+        "passed": true,
+        "command": [
+          "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+          "-e",
+          "diff",
+          "-q",
+          "-x",
+          "1.0",
+          "-R",
+          "1.0e-11",
+          "-E",
+          "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+          "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/star_with_eos_ipr.silo",
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star/final.silo.data/0.silo"
+        ],
+        "run": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-11",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/star_with_eos_ipr.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star/final.silo.data/0.silo"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control",
+          "returncode": 0,
+          "seconds": 3.917087229900062,
+          "log_sha256": "e551a5442f42d5aaf53be7c8d4b113e104c52dc1f74b9acab184a40172a94d83",
+          "log": {
+            "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star_reference_reproduced.log",
+            "sha256": "e551a5442f42d5aaf53be7c8d4b113e104c52dc1f74b9acab184a40172a94d83",
+            "bytes": 18841821
+          }
+        },
+        "failure_pattern": "(egas|gx|gy|gz|pot|rho_1|sx|sy|sz|tau)[.]vals|appears only in file"
+      },
+      "old_expectations_passed": true
+    },
+    "wd_equilibrium_1msun_grid8.silo": {
+      "original_reference": {
+        "commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+        "filename": "wd_equilibrium_1msun_grid8.silo",
+        "git_blob": "487fddcdb3d5f5b364546d2662cb1fb1091ff790",
+        "sha256": "6bc11e842edc0c17ccf5b1a8fc075875c01209bf24cde907d793b27fb66c41a4",
+        "bytes": 66642984
+      },
+      "candidate": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_wd_equilibrium/final.silo.data/0.silo",
+        "sha256": "c2479bd3ead82f5a29c790509ecc635612b5ce87627b46e244a0264810dde885",
+        "bytes": 66636944
+      },
+      "old_dipole_output": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo",
+        "sha256": "38a11ffbcd120a57a85e28c44cce5b56ad4cbf38bfd2df6337e55b9e7477f30a",
+        "bytes": 66643304
+      },
+      "configuration": {
+        "path": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/equilibrium.ini",
+        "sha256": "102ab48fd415070fdb2b32aa9a35f9fb9ca9b99a42a144a643290435143df277",
+        "bytes": 912,
+        "text": "# Cold, nonrotating, one-solar-mass WD; the model normalizes M = R = G = 1.\nproblem=star\neos=wd\ngravity=on\nhydro=on\nradiation=off\nomega=0\nn_species=1\n\n# dx_finest = 2 * 2.56 / (8 * 2^4) = 0.04: diameter 2 spans 50 cells.\nxscale=2.56\nmin_level=1\nmax_level=4\nunigrid=off\nrotating_star_amr=off\nngrids=-1\nrefinement_floor=1e-5\nstar_rho_out=1e-10\nrho_floor=1e-10\n# Suppress roundoff below zero in the cold dual-energy tracer (e_th >= 1e-50).\ntau_floor=1e-30\n\ncfl=0.4\ntheta=0.35\nmonopole_host_kernel_type=LEGACY\nmultipole_host_kernel_type=LEGACY\nhydro_host_kernel_type=LEGACY\namr_boundary_kernel_type=AMR_LEGACY\nmonopole_device_kernel_type=OFF\nmultipole_device_kernel_type=OFF\nhydro_device_kernel_type=OFF\nnumber_gpus=0\nexecutors_per_gpu=0\n\n# stop_step is inclusive: indices 0, 1, 2 produce three timesteps.\nstop_step=2\nstop_time=1\nodt=1\nsilo_num_groups=1\ndisable_output=off\ndisable_diagnostics=on\ndisable_analytic=on\n",
+        "repository_path": "test_problems/wd_equilibrium/equilibrium.ini"
+      },
+      "control_receipt": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/wd_receipt.json",
+        "sha256": "4720259ec90c79686df120e274f69c69977c3d41d84fe16793f5b2b50f0d62a8",
+        "bytes": 10595
+      },
+      "validation": {
+        "source_commit": "f274acf3339c2b81846b85ac58663cebf40c07d6",
+        "old_dipole_octolib_sha256": "ebdea70177f40b086efc48669c7e3f582ed5e8f87e294e2b9d7bb36440f857e7",
+        "old_dipole_patch_sha256": "f47af462d3e9b1d28470e993bfdfeb64c7cd7567e5afd836411e909d23b2df41",
+        "cpus": [
+          14,
+          15
+        ],
+        "runs": {
+          "old_wd_equilibrium": {
+            "command": [
+              "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+              "--hpx:threads=2",
+              "--hpx:bind=none",
+              "--hpx:localities=1",
+              "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/equilibrium.ini"
+            ],
+            "returncode": 0,
+            "seconds": 93.83924531005323
+          },
+          "old_wd_physics": {
+            "command": [
+              "python3",
+              "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/validate.py",
+              "--initial",
+              "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/X.0.silo",
+              "--final",
+              "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo",
+              "--output",
+              "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/metrics.json",
+              "--silo-library",
+              "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/libsiloh5.so"
+            ],
+            "returncode": 0,
+            "seconds": 2.9355722228065133
+          },
+          "old_wd_reference_reproduced": {
+            "command": [
+              "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+              "--proper-exit-code",
+              "-e",
+              "diff",
+              "-q",
+              "-x",
+              "1.0",
+              "-R",
+              "1.0e-12",
+              "-E",
+              "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+              "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/wd_equilibrium_1msun_grid8.silo",
+              "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo"
+            ],
+            "returncode": 0,
+            "seconds": 13.305542171932757
+          },
+          "old_wd_validated_baseline": {
+            "command": [
+              "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+              "--proper-exit-code",
+              "-e",
+              "diff",
+              "-q",
+              "-x",
+              "1.0",
+              "-R",
+              "1.0e-12",
+              "-E",
+              "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+              "/home/dmarce1/workspace/octotiger/output/scf_fix/octotiger-testdata/wd_equilibrium_1msun_grid8.silo",
+              "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo"
+            ],
+            "returncode": 0,
+            "seconds": 7.44945479510352,
+            "passed": true,
+            "testdata_commit": "d78889e2e62e1b857b5dd3f11d4de45537a2bfb6",
+            "source_commit": "cf540c78e022598d92eac1491e00b6e5007fb5f3",
+            "reference_sha256": "80fa7d177fd6b10085e6ada0630b92176963601d4cc32d59a494c24e427f4374"
+          }
+        },
+        "old_reference_reproduced": false,
+        "old_reference_failure_pattern_matched": true,
+        "old_validated_baseline_reproduced": true,
+        "validated_baseline": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "--proper-exit-code",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix/octotiger-testdata/wd_equilibrium_1msun_grid8.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo"
+          ],
+          "returncode": 0,
+          "seconds": 7.44945479510352,
+          "passed": true,
+          "testdata_commit": "d78889e2e62e1b857b5dd3f11d4de45537a2bfb6",
+          "source_commit": "cf540c78e022598d92eac1491e00b6e5007fb5f3",
+          "reference_sha256": "80fa7d177fd6b10085e6ada0630b92176963601d4cc32d59a494c24e427f4374"
+        },
+        "old_physics": {
+          "checks": {
+            "com_preserved": true,
+            "density_amr_has_coarser_leaves": true,
+            "evolved_from_zero_time": true,
+            "fifty_finest_cells_across_diameter": true,
+            "initial_momenta_zero": true,
+            "limited_density_drift": true,
+            "limited_velocity_growth": true,
+            "mass_conserved": true,
+            "one_solar_mass": true,
+            "positive_effective_thermodynamics": true
+          },
+          "metrics": {
+            "coarsest_dx_cm": 89109031.87676692,
+            "com_relative_drift": 1.1016683772552303e-16,
+            "density_relative_l1_drift": 0.0007011733664346074,
+            "diameter_in_finest_cells": 50.000000000000014,
+            "dynamical_velocity_cm_s": 488161742.33015984,
+            "expected_mass_g": 1.989e+33,
+            "final_com_cm": [
+              -4.2546473995324676e-09,
+              1.2763942198597402e-08,
+              2.795911148264193e-08
+            ],
+            "final_com_speed_cm_s": 1.9475584299500915e-10,
+            "final_rms_velocity_over_dynamical": 0.0011346617967977492,
+            "final_time_s": 0.06124668884648458,
+            "finest_dx_cm": 22277257.96919173,
+            "initial_com_cm": [
+              -1.5195169284074335e-08,
+              -4.862454170903788e-09,
+              -2.9782531796785698e-08
+            ],
+            "initial_com_speed_cm_s": 0.0,
+            "initial_mass_relative_error": 1.5291455176535962e-06,
+            "initial_rms_velocity_over_dynamical": 0.0,
+            "initial_time_s": 0.0,
+            "leaf_blocks": 848,
+            "leaf_blocks_by_levels_below_finest": {
+              "0": 448,
+              "1": 392,
+              "2": 8
+            },
+            "mass_final_g": 1.9889969585334675e+33,
+            "mass_initial_g": 1.9889969585295654e+33,
+            "mass_relative_drift": 1.9617640845126516e-12,
+            "radius_cm": 556931449.2297934
+          },
+          "passed": true,
+          "scope": "Three-step physical sanity checks with dual-energy pressure recovery. Negative conserved gas energy is diagnostic, not a thermodynamic failure. No exact discrete equilibrium or long-run stability claim.",
+          "thermodynamics": {
+            "final": {
+              "dual_energy_fallback_cells": 179652,
+              "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+              "minimum_effective_thermal_energy_erg_cm3": 2.74382896196885e-26,
+              "minimum_egas_erg_cm3": -1.812379193159915e+18,
+              "negative_egas_cells": 26800,
+              "negative_egas_integral_erg": 5.19429491064259e+43,
+              "negative_egas_mass_fraction": 1.8943028638261594e-05,
+              "negative_egas_over_binding_scale": 1.0958833775788823e-07
+            },
+            "initial": {
+              "dual_energy_fallback_cells": 434176,
+              "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+              "minimum_effective_thermal_energy_erg_cm3": 0.0,
+              "minimum_egas_erg_cm3": 59256631.94803639,
+              "negative_egas_cells": 0,
+              "negative_egas_integral_erg": 0.0,
+              "negative_egas_mass_fraction": 0.0,
+              "negative_egas_over_binding_scale": 0.0
+            }
+          },
+          "tolerances": {
+            "com_drift_over_radius": 1e-06,
+            "density_relative_l1_drift": 0.01,
+            "dual_energy_switch": 0.001,
+            "mass_relative_drift": 1e-07,
+            "mass_relative_error": 0.003,
+            "rms_velocity_over_dynamical": 0.02
+          }
+        },
+        "fixed_physics": {
+          "checks": {
+            "com_preserved": true,
+            "density_amr_has_coarser_leaves": true,
+            "evolved_from_zero_time": true,
+            "fifty_finest_cells_across_diameter": true,
+            "initial_momenta_zero": true,
+            "limited_density_drift": true,
+            "limited_velocity_growth": true,
+            "mass_conserved": true,
+            "one_solar_mass": true,
+            "positive_effective_thermodynamics": true
+          },
+          "metrics": {
+            "coarsest_dx_cm": 89109031.87676692,
+            "com_relative_drift": 7.49463849880368e-17,
+            "density_relative_l1_drift": 0.0007011730634764738,
+            "diameter_in_finest_cells": 50.000000000000014,
+            "dynamical_velocity_cm_s": 488161742.33015984,
+            "expected_mass_g": 1.989e+33,
+            "final_com_cm": [
+              -1.1548328655873841e-08,
+              6.0780677136178115e-09,
+              1.033271511315028e-08
+            ],
+            "final_com_speed_cm_s": 2.2749132186346568e-10,
+            "final_rms_velocity_over_dynamical": 0.001134661300361119,
+            "final_time_s": 0.06124668808287259,
+            "finest_dx_cm": 22277257.96919173,
+            "initial_com_cm": [
+              -1.5195169284074335e-08,
+              -4.862454170903788e-09,
+              -2.9782531796785698e-08
+            ],
+            "initial_com_speed_cm_s": 0.0,
+            "initial_mass_relative_error": 1.5291455176535962e-06,
+            "initial_rms_velocity_over_dynamical": 0.0,
+            "initial_time_s": 0.0,
+            "leaf_blocks": 848,
+            "leaf_blocks_by_levels_below_finest": {
+              "0": 448,
+              "1": 392,
+              "2": 8
+            },
+            "mass_final_g": 1.9889969585334672e+33,
+            "mass_initial_g": 1.9889969585295654e+33,
+            "mass_relative_drift": 1.9617640845126516e-12,
+            "radius_cm": 556931449.2297934
+          },
+          "passed": true,
+          "scope": "Three-step physical sanity checks with dual-energy pressure recovery. Negative conserved gas energy is diagnostic, not a thermodynamic failure. No exact discrete equilibrium or long-run stability claim.",
+          "thermodynamics": {
+            "final": {
+              "dual_energy_fallback_cells": 180600,
+              "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+              "minimum_effective_thermal_energy_erg_cm3": 2.74382896196885e-26,
+              "minimum_egas_erg_cm3": -1.8123794390225495e+18,
+              "negative_egas_cells": 26800,
+              "negative_egas_integral_erg": 5.194413967145205e+43,
+              "negative_egas_mass_fraction": 1.8942998045147377e-05,
+              "negative_egas_over_binding_scale": 1.0959084959143741e-07
+            },
+            "initial": {
+              "dual_energy_fallback_cells": 434176,
+              "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+              "minimum_effective_thermal_energy_erg_cm3": 0.0,
+              "minimum_egas_erg_cm3": 59256631.94803639,
+              "negative_egas_cells": 0,
+              "negative_egas_integral_erg": 0.0,
+              "negative_egas_mass_fraction": 0.0,
+              "negative_egas_over_binding_scale": 0.0
+            }
+          },
+          "tolerances": {
+            "com_drift_over_radius": 1e-06,
+            "density_relative_l1_drift": 0.01,
+            "dual_energy_switch": 0.001,
+            "mass_relative_drift": 1e-07,
+            "mass_relative_error": 0.003,
+            "rms_velocity_over_dynamical": 0.02
+          }
+        },
+        "old_silo_sha256": "38a11ffbcd120a57a85e28c44cce5b56ad4cbf38bfd2df6337e55b9e7477f30a",
+        "fixed_silo_sha256": "c2479bd3ead82f5a29c790509ecc635612b5ce87627b46e244a0264810dde885"
+      },
+      "baseline_assessment": {
+        "original_reference_reproduced": false,
+        "failure_pattern": "[.]vals|appears only in file",
+        "validated_baseline_reproduced": true,
+        "validated_baseline": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "--proper-exit-code",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix/octotiger-testdata/wd_equilibrium_1msun_grid8.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo"
+          ],
+          "returncode": 0,
+          "seconds": 7.44945479510352,
+          "passed": true,
+          "testdata_commit": "d78889e2e62e1b857b5dd3f11d4de45537a2bfb6",
+          "source_commit": "cf540c78e022598d92eac1491e00b6e5007fb5f3",
+          "reference_sha256": "80fa7d177fd6b10085e6ada0630b92176963601d4cc32d59a494c24e427f4374"
+        },
+        "validated_baseline_reference": {
+          "path": "/home/dmarce1/workspace/octotiger/output/scf_fix/octotiger-testdata/wd_equilibrium_1msun_grid8.silo",
+          "sha256": "80fa7d177fd6b10085e6ada0630b92176963601d4cc32d59a494c24e427f4374",
+          "bytes": 66643104
+        },
+        "prior_passing_suite_receipt": {
+          "path": "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/fix_and_reference/receipt.json",
+          "sha256": "6f169458c8fc4f4d9591de46aff9b190e0b252ffe1c3bcef86c3caa78ed2450d",
+          "bytes": 1886
+        },
+        "prior_passing_suite": {
+          "commit": "55b5641b621ee128b6cd4dfc82215f53b9d6e91a",
+          "source": "/home/dmarce1/workspace/octotiger/output/scf_fix",
+          "build": "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/hpx_2_0_0_suite/build",
+          "command": [
+            "ctest",
+            "--test-dir",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/hpx_2_0_0_suite/build",
+            "--parallel",
+            "1",
+            "--output-on-failure",
+            "--output-junit",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/fix_and_reference/ctest.xml",
+            "--output-log",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/fix_and_reference/ctest.log"
+          ],
+          "cpus": [
+            12,
+            13
+          ],
+          "status": "passed",
+          "testdata_base_commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+          "reference_sha256": "80fa7d177fd6b10085e6ada0630b92176963601d4cc32d59a494c24e427f4374",
+          "source_diff_sha256": "524b1d8bffdd4f6b033f29c57b42f417174d9d2db8534eaba735864a455ea585",
+          "hpx_commit": "c8a2b59c1100ac975222927b2a85192f406e1ba2",
+          "hpx_release_status": "Official v2.0.0 release",
+          "executable_sha256": "b108a1d26b6345234bc307b147c751d43c92b8666410ca768c898dcde0ea77b2",
+          "environment": {
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1",
+            "HPX_NUM_WORKER_THREADS": "2",
+            "HPX_COMMANDLINE_OPTIONS": "--hpx:ini=hpx.bind!=none",
+            "LD_LIBRARY_PATH": "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib:/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib:/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib:/usr/local/cuda/lib64"
+          },
+          "returncode": 0,
+          "seconds": 859.3483334591147,
+          "tests": 301,
+          "passed": 301,
+          "failed": 0,
+          "skipped": 0,
+          "failures": [],
+          "source_unchanged_during_tests": true,
+          "reference_unchanged_during_tests": true
+        },
+        "original_reference_residual_artifact": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/wd_residual_analysis.json",
+          "sha256": "0b6fcbb173c83ea2a8e2ba645f187fa3ad9242196367ce4403abffa1adb43840",
+          "bytes": 18989
+        },
+        "original_reference_residual_analysis": {
+          "schema_version": 1,
+          "recorded_at_utc": "2026-11-24T05:50:09.342077+00:00",
+          "conclusion": "The original-indexing control has the same numeric residual against testdata75dd as the historical official-HPX SCF run. This is a reproduced baseline discrepancy; its underlying cause is not established. The corrected dipole run changes the solution separately.",
+          "original_reference": {
+            "testdata_commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+            "filename": "wd_equilibrium_1msun_grid8.silo",
+            "artifact": {
+              "path": "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/wd_equilibrium_1msun_grid8.silo",
+              "sha256": "6bc11e842edc0c17ccf5b1a8fc075875c01209bf24cde907d793b27fb66c41a4",
+              "bytes": 66642984
+            }
+          },
+          "old_dipole_control": {
+            "source_commit": "f274acf3339c2b81846b85ac58663cebf40c07d6",
+            "old_dipole_patch_sha256": "f47af462d3e9b1d28470e993bfdfeb64c7cd7567e5afd836411e909d23b2df41",
+            "octolib_sha256": "ebdea70177f40b086efc48669c7e3f582ed5e8f87e294e2b9d7bb36440f857e7",
+            "comparison_log": {
+              "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_reference_reproduced.log",
+              "sha256": "45ec55506ba90bc6cbbed68e15975c9375d814105b5fb7e9f2b780f5d645ac36",
+              "bytes": 31234538
+            },
+            "numeric_line_count": 453552,
+            "numeric_lines_sha256": "b849356864bd031d3547771f6a59c8dc6df02b2f8a2c2630dd1e0c6fdb6d8264",
+            "original_reference_reproduced": false
+          },
+          "historical_comparison": {
+            "log_path": "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/hpx_2_0_0_suite/ctest.log",
+            "receipt": {
+              "path": "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/hpx_2_0_0_suite/receipt.json",
+              "sha256": "7ff37c8b21e92b39cf611abde02a4454713fa306e7ffcdd5efdb658595f10fc2",
+              "bytes": 2204
+            },
+            "source_commit": "55b5641b621ee128b6cd4dfc82215f53b9d6e91a",
+            "testdata_commit": "75dd2227a479fc056dd59532bb92f732450305d5",
+            "hpx_commit": "c8a2b59c1100ac975222927b2a85192f406e1ba2",
+            "hpx_release_status": "Official v2.0.0 release",
+            "numeric_line_count": 453552,
+            "numeric_lines_sha256": "b849356864bd031d3547771f6a59c8dc6df02b2f8a2c2630dd1e0c6fdb6d8264"
+          },
+          "numeric_residual_lines_identical": true,
+          "comparison_definition": {
+            "line_selection": "Unmodified complete lines matching a SILO .vals numeric pair; headings and metadata excluded. Numeric lines concatenated in emitted order and hashed as UTF-8.",
+            "mixed_metric": "abs(new-old)/(abs(old)+abs(new)+1)",
+            "units": "Each field retains its stored SILO units; absolute magnitudes across different fields are not comparable.",
+            "fixed_log_path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/full.log",
+            "fixed_test": "test_problems.cpu.wd_equilibrium.legacy.diff",
+            "fixed_source": "Untruncated CTest console log; JUnit XML truncates this output.",
+            "old_vs_fixed_scope": "Only common emitted cells; all old-control emitted cells occur in the fixed comparison. Largest printed magnitude is not necessarily the full-field maximum."
+          },
+          "old_vs_original_reference": {
+            "egas": {
+              "printed_entries": 43996,
+              "max_absolute_difference": 13129984.0,
+              "largest_printed_magnitude": 2.47348962482757e+18,
+              "max_mixed_metric": 1.6936780833769875e-07
+            },
+            "lx": {
+              "printed_entries": 84085,
+              "max_absolute_difference": 185319202.0,
+              "largest_printed_magnitude": 3.07380798686941e+19,
+              "max_mixed_metric": 0.9999999945276423
+            },
+            "ly": {
+              "printed_entries": 84166,
+              "max_absolute_difference": 175435130.0,
+              "largest_printed_magnitude": 4.57109386107513e+19,
+              "max_mixed_metric": 0.9999999894974514
+            },
+            "lz": {
+              "printed_entries": 84277,
+              "max_absolute_difference": 204292036.9378506,
+              "largest_printed_magnitude": 4.57109386107533e+19,
+              "max_mixed_metric": 0.9999999951050467
+            },
+            "tau": {
+              "printed_entries": 61803,
+              "max_absolute_difference": 0.006447189953178167,
+              "largest_printed_magnitude": 6421007.37583392,
+              "max_mixed_metric": 1.718604759049256e-07
+            },
+            "sx": {
+              "printed_entries": 25427,
+              "max_absolute_difference": 0.543975830078125,
+              "largest_printed_magnitude": 201318569903.452,
+              "max_mixed_metric": 1.436069870936881e-07
+            },
+            "sy": {
+              "printed_entries": 25487,
+              "max_absolute_difference": 0.968017578125,
+              "largest_printed_magnitude": 369188594514.989,
+              "max_mixed_metric": 2.0280874600919738e-07
+            },
+            "sz": {
+              "printed_entries": 25387,
+              "max_absolute_difference": 0.77301025390625,
+              "largest_printed_magnitude": 363250551284.61,
+              "max_mixed_metric": 2.3522974653625373e-07
+            },
+            "pot": {
+              "printed_entries": 15404,
+              "max_absolute_difference": 151298048.0,
+              "largest_printed_magnitude": 7.3560472992914e+19,
+              "max_mixed_metric": 1.5408134175399241e-10
+            },
+            "rho_1": {
+              "printed_entries": 3520,
+              "max_absolute_difference": 6.440359356929548e-10,
+              "largest_printed_magnitude": 312.993470115217,
+              "max_mixed_metric": 1.118341462348632e-11
+            }
+          },
+          "fixed_vs_original_reference": {
+            "egas": {
+              "printed_entries": 434176,
+              "max_absolute_difference": 3.4406989203746324e+18,
+              "largest_printed_magnitude": 8.5672777282617e+24,
+              "max_mixed_metric": 0.054042673006037115
+            },
+            "gx": {
+              "printed_entries": 315023,
+              "max_absolute_difference": 12.7532439827919,
+              "largest_printed_magnitude": 1066501568.06357,
+              "max_mixed_metric": 3.7423621445808905e-07
+            },
+            "gy": {
+              "printed_entries": 315027,
+              "max_absolute_difference": 12.7532439827919,
+              "largest_printed_magnitude": 1066501568.06357,
+              "max_mixed_metric": 3.742362591006219e-07
+            },
+            "gz": {
+              "printed_entries": 315028,
+              "max_absolute_difference": 12.7532439827919,
+              "largest_printed_magnitude": 1066501568.06357,
+              "max_mixed_metric": 3.7423638373434157e-07
+            },
+            "lx": {
+              "printed_entries": 434176,
+              "max_absolute_difference": 5.920684408097997e+16,
+              "largest_printed_magnitude": 3.1892724176334e+21,
+              "max_mixed_metric": 1.0
+            },
+            "ly": {
+              "printed_entries": 434176,
+              "max_absolute_difference": 5.920684406800384e+16,
+              "largest_printed_magnitude": 3.1892724176334e+21,
+              "max_mixed_metric": 1.0
+            },
+            "lz": {
+              "printed_entries": 434172,
+              "max_absolute_difference": 5.920684383102566e+16,
+              "largest_printed_magnitude": 3.18927241763337e+21,
+              "max_mixed_metric": 1.0
+            },
+            "pot": {
+              "printed_entries": 318326,
+              "max_absolute_difference": 7.877733021804134e+17,
+              "largest_printed_magnitude": 1.99254202155735e+25,
+              "max_mixed_metric": 3.769149734647431e-05
+            },
+            "sx": {
+              "printed_entries": 434172,
+              "max_absolute_difference": 976125618.5,
+              "largest_printed_magnitude": 48356181801528.5,
+              "max_mixed_metric": 0.023895748721326614
+            },
+            "sy": {
+              "printed_entries": 434171,
+              "max_absolute_difference": 976125617.6992188,
+              "largest_printed_magnitude": 48356181801527.7,
+              "max_mixed_metric": 0.02389574877784966
+            },
+            "sz": {
+              "printed_entries": 434171,
+              "max_absolute_difference": 976125621.1992188,
+              "largest_printed_magnitude": 48356181801527.8,
+              "max_mixed_metric": 0.023895748895844785
+            },
+            "tau": {
+              "printed_entries": 262514,
+              "max_absolute_difference": 777092.5324456401,
+              "largest_printed_magnitude": 9021969.38870449,
+              "max_mixed_metric": 0.9999962380762709
+            },
+            "rho_1": {
+              "printed_entries": 199872,
+              "max_absolute_difference": 1.5046788500621915,
+              "largest_printed_magnitude": 30613619.0318229,
+              "max_mixed_metric": 2.2573681650560157e-05
+            }
+          },
+          "fixed_vs_old_on_common_emitted_cells": {
+            "egas": {
+              "printed_entries": 43996,
+              "max_absolute_difference": 406535761382016.0,
+              "largest_printed_magnitude": 2.47348962481872e+18,
+              "max_mixed_metric": 0.054042673055467706
+            },
+            "lx": {
+              "printed_entries": 84085,
+              "max_absolute_difference": 1.6839870765665216e+16,
+              "largest_printed_magnitude": 3.07405466879676e+19,
+              "max_mixed_metric": 1.0
+            },
+            "ly": {
+              "printed_entries": 84166,
+              "max_absolute_difference": 1.683987081168805e+16,
+              "largest_printed_magnitude": 4.57109386107513e+19,
+              "max_mixed_metric": 1.0
+            },
+            "lz": {
+              "printed_entries": 84277,
+              "max_absolute_difference": 1.6839870825492266e+16,
+              "largest_printed_magnitude": 4.57109386107533e+19,
+              "max_mixed_metric": 1.0
+            },
+            "tau": {
+              "printed_entries": 61803,
+              "max_absolute_difference": 466523.92440499197,
+              "largest_printed_magnitude": 6421007.37583392,
+              "max_mixed_metric": 0.9999962380762709
+            },
+            "sx": {
+              "printed_entries": 25427,
+              "max_absolute_difference": 46900747.463012695,
+              "largest_printed_magnitude": 201323453006.614,
+              "max_mixed_metric": 0.023895749188334935
+            },
+            "sy": {
+              "printed_entries": 25487,
+              "max_absolute_difference": 34950202.61401367,
+              "largest_printed_magnitude": 369188594514.989,
+              "max_mixed_metric": 0.02389574887981614
+            },
+            "sz": {
+              "printed_entries": 25387,
+              "max_absolute_difference": 17227089.965499878,
+              "largest_printed_magnitude": 363250831988.995,
+              "max_mixed_metric": 0.023895748701842398
+            },
+            "pot": {
+              "printed_entries": 15404,
+              "max_absolute_difference": 237944413100032.0,
+              "largest_printed_magnitude": 7.35606664237276e+19,
+              "max_mixed_metric": 3.769149127725312e-05
+            },
+            "rho_1": {
+              "printed_entries": 3520,
+              "max_absolute_difference": 0.000843547789997956,
+              "largest_printed_magnitude": 312.994293146271,
+              "max_mixed_metric": 8.19013910313095e-06
+            }
+          },
+          "counts": {
+            "old_numeric_lines": 453552,
+            "fixed_numeric_lines": 4765004,
+            "common_numeric_lines": 453552,
+            "common_original_reference_values_identical": true,
+            "fixed_missing_object_messages": []
+          },
+          "physics": {
+            "old": {
+              "artifact": {
+                "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/metrics.json",
+                "sha256": "cf8af71be2b28c569c961ef43b6051b32e304a61d6880a6d6a1c1fefd91bb628",
+                "bytes": 2963
+              },
+              "result": {
+                "checks": {
+                  "com_preserved": true,
+                  "density_amr_has_coarser_leaves": true,
+                  "evolved_from_zero_time": true,
+                  "fifty_finest_cells_across_diameter": true,
+                  "initial_momenta_zero": true,
+                  "limited_density_drift": true,
+                  "limited_velocity_growth": true,
+                  "mass_conserved": true,
+                  "one_solar_mass": true,
+                  "positive_effective_thermodynamics": true
+                },
+                "metrics": {
+                  "coarsest_dx_cm": 89109031.87676692,
+                  "com_relative_drift": 1.1016683772552303e-16,
+                  "density_relative_l1_drift": 0.0007011733664346074,
+                  "diameter_in_finest_cells": 50.000000000000014,
+                  "dynamical_velocity_cm_s": 488161742.33015984,
+                  "expected_mass_g": 1.989e+33,
+                  "final_com_cm": [
+                    -4.2546473995324676e-09,
+                    1.2763942198597402e-08,
+                    2.795911148264193e-08
+                  ],
+                  "final_com_speed_cm_s": 1.9475584299500915e-10,
+                  "final_rms_velocity_over_dynamical": 0.0011346617967977492,
+                  "final_time_s": 0.06124668884648458,
+                  "finest_dx_cm": 22277257.96919173,
+                  "initial_com_cm": [
+                    -1.5195169284074335e-08,
+                    -4.862454170903788e-09,
+                    -2.9782531796785698e-08
+                  ],
+                  "initial_com_speed_cm_s": 0.0,
+                  "initial_mass_relative_error": 1.5291455176535962e-06,
+                  "initial_rms_velocity_over_dynamical": 0.0,
+                  "initial_time_s": 0.0,
+                  "leaf_blocks": 848,
+                  "leaf_blocks_by_levels_below_finest": {
+                    "0": 448,
+                    "1": 392,
+                    "2": 8
+                  },
+                  "mass_final_g": 1.9889969585334675e+33,
+                  "mass_initial_g": 1.9889969585295654e+33,
+                  "mass_relative_drift": 1.9617640845126516e-12,
+                  "radius_cm": 556931449.2297934
+                },
+                "passed": true,
+                "scope": "Three-step physical sanity checks with dual-energy pressure recovery. Negative conserved gas energy is diagnostic, not a thermodynamic failure. No exact discrete equilibrium or long-run stability claim.",
+                "thermodynamics": {
+                  "final": {
+                    "dual_energy_fallback_cells": 179652,
+                    "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+                    "minimum_effective_thermal_energy_erg_cm3": 2.74382896196885e-26,
+                    "minimum_egas_erg_cm3": -1.812379193159915e+18,
+                    "negative_egas_cells": 26800,
+                    "negative_egas_integral_erg": 5.19429491064259e+43,
+                    "negative_egas_mass_fraction": 1.8943028638261594e-05,
+                    "negative_egas_over_binding_scale": 1.0958833775788823e-07
+                  },
+                  "initial": {
+                    "dual_energy_fallback_cells": 434176,
+                    "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+                    "minimum_effective_thermal_energy_erg_cm3": 0.0,
+                    "minimum_egas_erg_cm3": 59256631.94803639,
+                    "negative_egas_cells": 0,
+                    "negative_egas_integral_erg": 0.0,
+                    "negative_egas_mass_fraction": 0.0,
+                    "negative_egas_over_binding_scale": 0.0
+                  }
+                },
+                "tolerances": {
+                  "com_drift_over_radius": 1e-06,
+                  "density_relative_l1_drift": 0.01,
+                  "dual_energy_switch": 0.001,
+                  "mass_relative_drift": 1e-07,
+                  "mass_relative_error": 0.003,
+                  "rms_velocity_over_dynamical": 0.02
+                }
+              }
+            },
+            "fixed": {
+              "artifact": {
+                "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_wd_equilibrium/metrics.json",
+                "sha256": "4f58c6fc5e935adfb90233c10ad80bfb9f391f6b272941ba7f97f0aecd9e3a54",
+                "bytes": 2962
+              },
+              "result": {
+                "checks": {
+                  "com_preserved": true,
+                  "density_amr_has_coarser_leaves": true,
+                  "evolved_from_zero_time": true,
+                  "fifty_finest_cells_across_diameter": true,
+                  "initial_momenta_zero": true,
+                  "limited_density_drift": true,
+                  "limited_velocity_growth": true,
+                  "mass_conserved": true,
+                  "one_solar_mass": true,
+                  "positive_effective_thermodynamics": true
+                },
+                "metrics": {
+                  "coarsest_dx_cm": 89109031.87676692,
+                  "com_relative_drift": 7.49463849880368e-17,
+                  "density_relative_l1_drift": 0.0007011730634764738,
+                  "diameter_in_finest_cells": 50.000000000000014,
+                  "dynamical_velocity_cm_s": 488161742.33015984,
+                  "expected_mass_g": 1.989e+33,
+                  "final_com_cm": [
+                    -1.1548328655873841e-08,
+                    6.0780677136178115e-09,
+                    1.033271511315028e-08
+                  ],
+                  "final_com_speed_cm_s": 2.2749132186346568e-10,
+                  "final_rms_velocity_over_dynamical": 0.001134661300361119,
+                  "final_time_s": 0.06124668808287259,
+                  "finest_dx_cm": 22277257.96919173,
+                  "initial_com_cm": [
+                    -1.5195169284074335e-08,
+                    -4.862454170903788e-09,
+                    -2.9782531796785698e-08
+                  ],
+                  "initial_com_speed_cm_s": 0.0,
+                  "initial_mass_relative_error": 1.5291455176535962e-06,
+                  "initial_rms_velocity_over_dynamical": 0.0,
+                  "initial_time_s": 0.0,
+                  "leaf_blocks": 848,
+                  "leaf_blocks_by_levels_below_finest": {
+                    "0": 448,
+                    "1": 392,
+                    "2": 8
+                  },
+                  "mass_final_g": 1.9889969585334672e+33,
+                  "mass_initial_g": 1.9889969585295654e+33,
+                  "mass_relative_drift": 1.9617640845126516e-12,
+                  "radius_cm": 556931449.2297934
+                },
+                "passed": true,
+                "scope": "Three-step physical sanity checks with dual-energy pressure recovery. Negative conserved gas energy is diagnostic, not a thermodynamic failure. No exact discrete equilibrium or long-run stability claim.",
+                "thermodynamics": {
+                  "final": {
+                    "dual_energy_fallback_cells": 180600,
+                    "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+                    "minimum_effective_thermal_energy_erg_cm3": 2.74382896196885e-26,
+                    "minimum_egas_erg_cm3": -1.8123794390225495e+18,
+                    "negative_egas_cells": 26800,
+                    "negative_egas_integral_erg": 5.194413967145205e+43,
+                    "negative_egas_mass_fraction": 1.8942998045147377e-05,
+                    "negative_egas_over_binding_scale": 1.0959084959143741e-07
+                  },
+                  "initial": {
+                    "dual_energy_fallback_cells": 434176,
+                    "minimum_effective_pressure_erg_cm3": 39504411.412969664,
+                    "minimum_effective_thermal_energy_erg_cm3": 0.0,
+                    "minimum_egas_erg_cm3": 59256631.94803639,
+                    "negative_egas_cells": 0,
+                    "negative_egas_integral_erg": 0.0,
+                    "negative_egas_mass_fraction": 0.0,
+                    "negative_egas_over_binding_scale": 0.0
+                  }
+                },
+                "tolerances": {
+                  "com_drift_over_radius": 1e-06,
+                  "density_relative_l1_drift": 0.01,
+                  "dual_energy_switch": 0.001,
+                  "mass_relative_drift": 1e-07,
+                  "mass_relative_error": 0.003,
+                  "rms_velocity_over_dynamical": 0.02
+                }
+              }
+            }
+          },
+          "root_leaf_path": {
+            "eligible": false,
+            "basis": "The source initializes the root without solving gravity, then refines before the first gravity solve. Both traces show9nodes/8leaves before the first solve and reach969nodes/848leaves; min_level=1.",
+            "old_trace": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium.log",
+            "fixed_trace": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_grid8/stdout.log",
+            "source_paths": [
+              "frontend/frontend-helper.cpp:192",
+              "src/node_server_actions_1.cpp:244",
+              "src/node_server.cpp:502",
+              "src/grid.cpp:1870"
+            ]
+          },
+          "recommended_refresh_gate": "Retain this baseline mismatch explicitly. Require a separately justified validated-baseline comparison and an independent corrected fixture repeat with unchanged SILO criteria and passing physics before installing a new fixed reference.",
+          "limits": [
+            "No claim that the old control passes the75dd reference tolerance.",
+            "No claim that the baseline residual has been proved to be roundoff.",
+            "Three-step physics checks do not establish long-term stability.",
+            "No simulation was run to produce this analysis."
+          ]
+        },
+        "statement": "The old-indexing control fails the original 75dd reference with exactly the numeric residual previously recorded by the official-HPX SCF suite. It passes the separately validated d788 WD reference with unchanged tolerances, exclusions, and failure pattern. The new candidate was generated with the corrected dipole implementation; d788 is comparison evidence, not the replacement file. The refresh therefore includes both the pre-existing baseline discrepancy and the separate dipole-induced change; the cause of the baseline discrepancy is not established."
+      },
+      "verified_control_runs": {
+        "old_wd_equilibrium": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--hpx:threads=2",
+            "--hpx:bind=none",
+            "--hpx:localities=1",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/equilibrium.ini"
+          ],
+          "returncode": 0,
+          "seconds": 93.83924531005323,
+          "log": {
+            "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium.log",
+            "sha256": "ddd68a84373e9f2231281744a2ee8dcdac69f7822f1a5cf9f225ccf2b5f3097b",
+            "bytes": 13831
+          }
+        },
+        "old_wd_physics": {
+          "command": [
+            "python3",
+            "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/validate.py",
+            "--initial",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/X.0.silo",
+            "--final",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo",
+            "--output",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/metrics.json",
+            "--silo-library",
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/libsiloh5.so"
+          ],
+          "returncode": 0,
+          "seconds": 2.9355722228065133,
+          "log": {
+            "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_physics.log",
+            "sha256": "cf8af71be2b28c569c961ef43b6051b32e304a61d6880a6d6a1c1fefd91bb628",
+            "bytes": 2963
+          }
+        },
+        "old_wd_reference_reproduced": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "--proper-exit-code",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/wd_equilibrium_1msun_grid8.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo"
+          ],
+          "returncode": 0,
+          "seconds": 13.305542171932757,
+          "log": {
+            "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_reference_reproduced.log",
+            "sha256": "45ec55506ba90bc6cbbed68e15975c9375d814105b5fb7e9f2b780f5d645ac36",
+            "bytes": 31234538
+          }
+        },
+        "old_wd_validated_baseline": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "--proper-exit-code",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix/octotiger-testdata/wd_equilibrium_1msun_grid8.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_equilibrium/final.silo.data/0.silo"
+          ],
+          "returncode": 0,
+          "seconds": 7.44945479510352,
+          "passed": true,
+          "testdata_commit": "d78889e2e62e1b857b5dd3f11d4de45537a2bfb6",
+          "source_commit": "cf540c78e022598d92eac1491e00b6e5007fb5f3",
+          "reference_sha256": "80fa7d177fd6b10085e6ada0630b92176963601d4cc32d59a494c24e427f4374",
+          "log": {
+            "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_wd_validated_baseline.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0
+          }
+        }
+      },
+      "old_linked_libraries": {
+        "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/wd_old_linked_libraries.txt",
+        "sha256": "85f9b733e782a0270d7a66c7e648438a7e89034c58e0cace4ac7c12534e38418",
+        "bytes": 4211,
+        "text": "\tlinux-vdso.so.1 (0x0000791959282000)\n\tlibhpx_octolib.so => /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_libraries/libhpx_octolib.so (0x0000791958800000)\n\tlibhpx_hydrolib.so => /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/libhpx_hydrolib.so (0x0000791958692000)\n\tlibhpx_optionslib.so => /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/libhpx_optionslib.so (0x00007919590e5000)\n\tlibhpx.so.2 => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/libhpx.so.2 (0x0000791957c00000)\n\tlibhpx_core.so => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/hpx_2_0_0_cpu/lib/libhpx_core.so (0x0000791957800000)\n\tlibstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x0000791957400000)\n\tlibgcc_s.so.1 => /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000079195907d000)\n\tlibc.so.6 => /usr/lib/x86_64-linux-gnu/libc.so.6 (0x0000791957000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000791959284000)\n\tlibboost_program_options.so.1.83.0 => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/boost_183/lib/libboost_program_options.so.1.83.0 (0x0000791958622000)\n\tlibquadmath.so.0 => /usr/lib/x86_64-linux-gnu/libquadmath.so.0 (0x0000791959031000)\n\tlibsiloh5.so.412 => /home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/libsiloh5.so.412 (0x0000791957278000)\n\tlibm.so.6 => /usr/lib/x86_64-linux-gnu/libm.so.6 (0x00007919576da000)\n\tlibhwloc.so.15 => /usr/lib/x86_64-linux-gnu/libhwloc.so.15 (0x0000791956f9b000)\n\tlibhdf5_serial.so.103 => /usr/lib/x86_64-linux-gnu/libhdf5_serial.so.103 (0x0000791956c00000)\n\tlibudev.so.1 => /usr/lib/x86_64-linux-gnu/libudev.so.1 (0x0000791957bb8000)\n\tlibcrypto.so.3 => /usr/lib/x86_64-linux-gnu/libcrypto.so.3 (0x0000791956400000)\n\tlibcurl.so.4 => /usr/lib/x86_64-linux-gnu/libcurl.so.4 (0x0000791956b0c000)\n\tlibsz.so.2 => /usr/lib/x86_64-linux-gnu/libsz.so.2 (0x0000791958618000)\n\tlibz.so.1 => /usr/lib/x86_64-linux-gnu/libz.so.1 (0x00007919585fa000)\n\tlibzstd.so.1 => /usr/lib/x86_64-linux-gnu/libzstd.so.1 (0x0000791956a49000)\n\tlibnghttp2.so.14 => /usr/lib/x86_64-linux-gnu/libnghttp2.so.14 (0x00007919576b0000)\n\tlibidn2.so.0 => /usr/lib/x86_64-linux-gnu/libidn2.so.0 (0x0000791957256000)\n\tlibrtmp.so.1 => /usr/lib/x86_64-linux-gnu/librtmp.so.1 (0x0000791957236000)\n\tlibldap.so.2 => /usr/lib/x86_64-linux-gnu/libldap.so.2 (0x000079195639d000)\n\tliblber.so.2 => /usr/lib/x86_64-linux-gnu/liblber.so.2 (0x0000791957ba7000)\n\tlibssh2.so.1 => /usr/lib/x86_64-linux-gnu/libssh2.so.1 (0x0000791956350000)\n\tlibpsl.so.5 => /usr/lib/x86_64-linux-gnu/libpsl.so.5 (0x0000791957221000)\n\tlibssl.so.3 => /usr/lib/x86_64-linux-gnu/libssl.so.3 (0x000079195623f000)\n\tlibgssapi_krb5.so.2 => /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007919561e7000)\n\tlibbrotlidec.so.1 => /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007919576a1000)\n\tlibunistring.so.5 => /usr/lib/x86_64-linux-gnu/libunistring.so.5 (0x0000791956000000)\n\tlibgnutls.so.30 => /usr/lib/x86_64-linux-gnu/libgnutls.so.30 (0x0000791955c00000)\n\tlibhogweed.so.6 => /usr/lib/x86_64-linux-gnu/libhogweed.so.6 (0x0000791955fb5000)\n\tlibnettle.so.8 => /usr/lib/x86_64-linux-gnu/libnettle.so.8 (0x0000791955f5e000)\n\tlibgmp.so.10 => /usr/lib/x86_64-linux-gnu/libgmp.so.10 (0x0000791955ed8000)\n\tlibsasl2.so.2 => /usr/lib/x86_64-linux-gnu/libsasl2.so.2 (0x0000791956f80000)\n\tlibkrb5.so.3 => /usr/lib/x86_64-linux-gnu/libkrb5.so.3 (0x0000791955b34000)\n\tlibk5crypto.so.3 => /usr/lib/x86_64-linux-gnu/libk5crypto.so.3 (0x0000791956a1d000)\n\tlibcom_err.so.2 => /usr/lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007919585f0000)\n\tlibkrb5support.so.0 => /usr/lib/x86_64-linux-gnu/libkrb5support.so.0 (0x0000791955ecb000)\n\tlibbrotlicommon.so.1 => /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x0000791955ea8000)\n\tlibp11-kit.so.0 => /usr/lib/x86_64-linux-gnu/libp11-kit.so.0 (0x0000791955959000)\n\tlibtasn1.so.6 => /usr/lib/x86_64-linux-gnu/libtasn1.so.6 (0x0000791955e91000)\n\tlibkeyutils.so.1 => /usr/lib/x86_64-linux-gnu/libkeyutils.so.1 (0x0000791957ba0000)\n\tlibresolv.so.2 => /usr/lib/x86_64-linux-gnu/libresolv.so.2 (0x0000791955e7e000)\n\tlibffi.so.8 => /usr/lib/x86_64-linux-gnu/libffi.so.8 (0x0000791955e6d000)\n"
+      },
+      "fixed_generation": {
+        "description": "Retained corrected full-suite WD fixture output, copied after the separate old-indexing baseline control",
+        "full_suite_receipt": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/full.json",
+          "sha256": "21f7d26519c7d96b751876b47348445c8766ac47063045c326e7dcd578ffae63",
+          "bytes": 3291
+        },
+        "runner": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_equilibrium.cmake",
+          "sha256": "b61bb32e82ebc53ab7dddd77f895b35447043596a367743992879266271a6564",
+          "bytes": 1115,
+          "text": "if(NOT DEFINED OCTOTIGER_EXECUTABLE OR NOT DEFINED EQUILIBRIUM_CONFIG OR\n   NOT DEFINED EQUILIBRIUM_RUN_DIRECTORY)\n  message(FATAL_ERROR \"WD equilibrium runner is missing required arguments\")\nendif()\nfile(REMOVE_RECURSE \"${EQUILIBRIUM_RUN_DIRECTORY}\")\nfile(MAKE_DIRECTORY \"${EQUILIBRIUM_RUN_DIRECTORY}\")\nexecute_process(\n  COMMAND \"${OCTOTIGER_EXECUTABLE}\"\n    --hpx:threads=2 --hpx:bind=none --hpx:localities=1\n    \"--config_file=${EQUILIBRIUM_CONFIG}\"\n  WORKING_DIRECTORY \"${EQUILIBRIUM_RUN_DIRECTORY}\"\n  OUTPUT_FILE \"${EQUILIBRIUM_RUN_DIRECTORY}/stdout.log\"\n  ERROR_FILE \"${EQUILIBRIUM_RUN_DIRECTORY}/stderr.log\"\n  RESULT_VARIABLE equilibrium_result\n  TIMEOUT 280)\nif(NOT equilibrium_result STREQUAL \"0\")\n  message(FATAL_ERROR\n    \"WD equilibrium simulation failed (${equilibrium_result}); see \"\n    \"${EQUILIBRIUM_RUN_DIRECTORY}/stdout.log and stderr.log\")\nendif()\nforeach(snapshot X.0.silo X.0.silo.data/0.silo final.silo final.silo.data/0.silo)\n  if(NOT EXISTS \"${EQUILIBRIUM_RUN_DIRECTORY}/${snapshot}\")\n    message(FATAL_ERROR \"WD equilibrium simulation did not produce ${snapshot}\")\n  endif()\nendforeach()\n"
+        },
+        "registered_commands": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/CTestTestfile.cmake",
+          "sha256": "f838ac81095fcb74fe5c9b7a8c2084d0d8f8e47b1b737e3b4753bf47b5b6f963",
+          "bytes": 4088,
+          "text": "# CMake generated Testfile for \n# Source directory: /home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium\n# Build directory: /home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium\n# \n# This file includes the relevant testing commands required for \n# testing this directory and lists subdirectories to be tested as well.\nadd_test(test_problems.wd_equilibrium.model \"/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/wd_equilibrium_model_test\")\nset_tests_properties(test_problems.wd_equilibrium.model PROPERTIES  LABELS \"eos;wd_equilibrium\" PROCESSORS \"1\" TIMEOUT \"30\" _BACKTRACE_TRIPLES \"/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;12;add_test;/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;0;\")\nadd_test(test_problems.cpu.wd_equilibrium.legacy \"/usr/bin/cmake\" \"-DOCTOTIGER_EXECUTABLE=/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger\" \"-DEQUILIBRIUM_CONFIG=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/equilibrium.ini\" \"-DEQUILIBRIUM_RUN_DIRECTORY=/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_grid8\" \"-P\" \"/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_equilibrium.cmake\")\nset_tests_properties(test_problems.cpu.wd_equilibrium.legacy PROPERTIES  FIXTURES_SETUP \"test_problems.cpu.wd_equilibrium.legacy\" LABELS \"eos;hydro;gravity;wd_equilibrium\" PROCESSORS \"2\" TIMEOUT \"300\" _BACKTRACE_TRIPLES \"/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;72;add_test;/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;0;\")\nadd_test(test_problems.cpu.wd_equilibrium.legacy.diff \"/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser\" \"--proper-exit-code\" \"-e\" \"diff\" \"-q\" \"-x\" \"1.0\" \"-R\" \"1.0e-12\" \"-E\" \"idle_rate,locality,/_hdf5libinfo,/_silolibinfo\" \"/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/octotiger-testdata/wd_equilibrium_1msun_grid8.silo\" \"/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_grid8/final.silo.data/0.silo\")\nset_tests_properties(test_problems.cpu.wd_equilibrium.legacy.diff PROPERTIES  FAIL_REGULAR_EXPRESSION \"[.]vals|appears only in file\" FIXTURES_REQUIRED \"test_problems.cpu.wd_equilibrium.legacy\" LABELS \"eos;hydro;gravity;wd_equilibrium\" PROCESSORS \"1\" TIMEOUT \"120\" _BACKTRACE_TRIPLES \"/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;82;add_test;/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;0;\")\nadd_test(test_problems.cpu.wd_equilibrium.legacy.physics \"/usr/bin/python3\" \"/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/validate.py\" \"--initial\" \"/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_grid8/X.0.silo\" \"--final\" \"/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_grid8/final.silo\" \"--output\" \"/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/test_problems/wd_equilibrium/run_grid8/metrics.json\" \"--silo-library\" \"/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/lib/libsiloh5.so\")\nset_tests_properties(test_problems.cpu.wd_equilibrium.legacy.physics PROPERTIES  ENVIRONMENT \"OPENBLAS_NUM_THREADS=1;OMP_NUM_THREADS=1;MKL_NUM_THREADS=1\" FIXTURES_REQUIRED \"test_problems.cpu.wd_equilibrium.legacy\" LABELS \"eos;hydro;gravity;wd_equilibrium\" PROCESSORS \"1\" TIMEOUT \"120\" _BACKTRACE_TRIPLES \"/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;104;add_test;/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/wd_equilibrium/CMakeLists.txt;0;\")\n"
+        }
+      },
+      "limitations": [
+        "Three-step physical checks do not establish long-term equilibrium."
+      ],
+      "repeat_validation": {
+        "statement": "An independent corrected fixture simulation, reference comparison, and physics validation passed in the final CTest XML.",
+        "passed_cases": [
+          "test_problems.cpu.wd_equilibrium.legacy",
+          "test_problems.cpu.wd_equilibrium.legacy.diff",
+          "test_problems.cpu.wd_equilibrium.legacy.physics"
+        ],
+        "xml_artifact": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/affected.xml",
+          "sha256": "42f06564771ce4fe88993ff1484e4a65eec1734bc036b40912a34ed643a98e4c",
+          "bytes": 123057
+        }
+      }
+    }
+  },
+  "rotating_star_initial_model": {
+    "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/initial/rotating_star.bin",
+    "sha256": "59d8c78665b048a5cbb759636d5f9918d38d1c3a946acbe8941f51f7f2d90bfc",
+    "bytes": 640016
+  },
+  "dipole_only_control": {
+    "patch": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_dipole_only.patch",
+      "sha256": "f47af462d3e9b1d28470e993bfdfeb64c7cd7567e5afd836411e909d23b2df41",
+      "bytes": 1390,
+      "text": "diff --git a/src/grid_fmm.cpp b/src/grid_fmm.cpp\nindex 78a926557..b0eaf4b2f 100644\n--- a/src/grid_fmm.cpp\n+++ b/src/grid_fmm.cpp\n@@ -511,8 +511,8 @@ void grid::compute_interactions(gsolve_type type) {\n \t\t\t\tA1(a) = -m1() * D(a);\n \t\t\t\tfor (integer i = 0; i != 6; ++i) {\n \t\t\t\t\tif (type != RHO && i < 3) {\n-\t\t\t\t\t\tA0(a) -= m0(i) * D[ab_idx_map[i]];\n-\t\t\t\t\t\tA1(a) -= m1(i) * D[ab_idx_map[i]];\n+\t\t\t\t\t\tA0(a) -= m0(a) * D[ab_idx_map[i]];\n+\t\t\t\t\t\tA1(a) -= m1(a) * D[ab_idx_map[i]];\n \t\t\t\t\t}\n \t\t\t\t\tconst integer cb_idx = cb_idx_map[i];\n \t\t\t\t\tconst auto tmp1 = D[abc_idx_map[i]] * (factor[cb_idx] * HALF);\n@@ -749,7 +749,7 @@ void grid::compute_boundary_interactions_multipole_multipole(gsolve_type type, c\n \t\t\tA0(a) = m0() * D(a);\n \t\t\tfor (integer i = 0; i != 6; ++i) {\n \t\t\t\tif (type != RHO && i < 3) {\n-\t\t\t\t\tA0(a) -= m0(i) * D[ab_idx_map[i]];\n+\t\t\t\t\tA0(a) -= m0(a) * D[ab_idx_map[i]];\n \t\t\t\t}\n \t\t\t\tconst integer cb_idx = cb_idx_map[i];\n \t\t\t\tconst auto tmp = D[abc_idx_map[i]] * (factor[cb_idx] * HALF);\n@@ -911,7 +911,7 @@ void grid::compute_boundary_interactions_multipole_monopole(gsolve_type type, co\n \t\t\tA0(a) = m0() * D(a);\n \t\t\tfor (integer i = 0; i != 6; ++i) {\n \t\t\t\tif (type != RHO && i < 3) {\n-\t\t\t\t\tA0(a) -= m0(i) * D[ab_idx_map[i]];\n+\t\t\t\t\tA0(a) -= m0(a) * D[ab_idx_map[i]];\n \t\t\t\t}\n \t\t\t\tconst integer cb_idx = cb_idx_map[i];\n \t\t\t\tA0(a) += m0[cb_idx] * D[abc_idx_map[i]] * (factor[cb_idx] * HALF);\n"
+    },
+    "old_grid_fmm_sha256": "4b3963d5ceddfdd33d511e0e3a9fc239e92beb673bf7a65c4c5b66773a35b338",
+    "fixed_executable_sha256": "c944b240b212cac42f3b32400b30c7f701090df7bb9076ed84e6008274b47f74",
+    "fixed_octolib_sha256": "dbf10337eb641069393bab8fa26a74f42463edc8a7c41071c2dc35ee4418dfc2",
+    "old_octolib_sha256": "ebdea70177f40b086efc48669c7e3f582ed5e8f87e294e2b9d7bb36440f857e7",
+    "restored_octolib_sha256": "dbf10337eb641069393bab8fa26a74f42463edc8a7c41071c2dc35ee4418dfc2",
+    "receipt_artifact": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/receipt.json",
+      "sha256": "1809e87f312fc9121ec02cca66c82710cad5b08c309558cd8c9d22b1e730c422",
+      "bytes": 19970
+    },
+    "receipt": {
+      "source_commit": "f274acf3339c2b81846b85ac58663cebf40c07d6",
+      "cpus": [
+        14,
+        15
+      ],
+      "runs": {
+        "generate_initial": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/tools/gen_rotating_star_init"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/initial",
+          "returncode": 0,
+          "seconds": 31.99472121382132,
+          "log_sha256": "c11621e58a955be57d89f66e2f3c7687f12898463aee945cd00070eba7741a06"
+        },
+        "fixed_legacy": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+            "--monopole_host_kernel_type=LEGACY",
+            "--multipole_host_kernel_type=LEGACY",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy",
+          "returncode": 0,
+          "seconds": 70.12549057789147,
+          "log_sha256": "157cb106fff7a8cb26ce9a3064f1faa00cd6f3f4e56e8ce08a8cf589545f3196",
+          "norms": {
+            "rho": [
+              "3.173837e-05",
+              "2.000561e-04",
+              "5.693978e-03"
+            ],
+            "egas": [
+              "5.814051e-06",
+              "4.740748e-05",
+              "1.595588e-03"
+            ],
+            "tau": [
+              "1.377745e-05",
+              "8.245744e-05",
+              "2.035302e-03"
+            ],
+            "pot": [
+              "5.264233e-03",
+              "3.940785e-02",
+              "7.783497e-01"
+            ],
+            "sx": [
+              "7.395988e-06",
+              "6.126461e-05",
+              "3.376647e-03"
+            ],
+            "sy": [
+              "7.395988e-06",
+              "6.126461e-05",
+              "3.376647e-03"
+            ],
+            "sz": [
+              "5.153529e-06",
+              "6.025423e-05",
+              "3.590974e-03"
+            ],
+            "spc_1": [
+              "3.173837e-05",
+              "2.000561e-04",
+              "5.693978e-03"
+            ],
+            "spc_2": [
+              "7.825168e-13",
+              "3.102090e-12",
+              "5.175644e-11"
+            ],
+            "spc_3": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_4": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_5": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ]
+          },
+          "silo_sha256": "2be3bea98450f3ed90f6f5075c6d2c7eff5faa67c46c3d67a961093446f3aef4"
+        },
+        "fixed_vc": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+            "--monopole_host_kernel_type=VC",
+            "--multipole_host_kernel_type=VC",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_vc",
+          "returncode": 0,
+          "seconds": 68.2991479979828,
+          "log_sha256": "2f8b56779009f7ef9c4211037e9ca5f4dafcc3746bd27cafab90a082c23a6cba",
+          "norms": {
+            "rho": [
+              "3.173837e-05",
+              "2.000561e-04",
+              "5.693978e-03"
+            ],
+            "egas": [
+              "5.814051e-06",
+              "4.740748e-05",
+              "1.595588e-03"
+            ],
+            "tau": [
+              "1.377745e-05",
+              "8.245744e-05",
+              "2.035302e-03"
+            ],
+            "pot": [
+              "5.264233e-03",
+              "3.940785e-02",
+              "7.783497e-01"
+            ],
+            "sx": [
+              "7.395988e-06",
+              "6.126461e-05",
+              "3.376647e-03"
+            ],
+            "sy": [
+              "7.395988e-06",
+              "6.126461e-05",
+              "3.376647e-03"
+            ],
+            "sz": [
+              "5.153529e-06",
+              "6.025423e-05",
+              "3.590974e-03"
+            ],
+            "spc_1": [
+              "3.173837e-05",
+              "2.000561e-04",
+              "5.693978e-03"
+            ],
+            "spc_2": [
+              "7.825168e-13",
+              "3.102090e-12",
+              "5.175644e-11"
+            ],
+            "spc_3": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_4": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_5": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ]
+          },
+          "silo_sha256": "95e1dd320d8aaf79083f424105c28c7954c7dec9ca340d2ab2502b7d343d9e32"
+        },
+        "fixed_legacy_wd": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+            "--monopole_host_kernel_type=LEGACY",
+            "--multipole_host_kernel_type=LEGACY",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY",
+            "--eos=WD"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy_wd",
+          "returncode": 0,
+          "seconds": 73.95708289998583,
+          "log_sha256": "0124569c4a2390dc0330d18e76f24044e4db0f3210537dfb9d81f0bc1ff045ed",
+          "norms": {
+            "rho": [
+              "1.394994e-03",
+              "1.033916e-02",
+              "2.767325e-01"
+            ],
+            "egas": [
+              "1.282294e-03",
+              "1.179187e-02",
+              "3.493074e-01"
+            ],
+            "tau": [
+              "6.103896e-04",
+              "4.523953e-03",
+              "1.210863e-01"
+            ],
+            "pot": [
+              "4.917759e-03",
+              "3.234269e-02",
+              "5.188656e-01"
+            ],
+            "sx": [
+              "2.162751e-03",
+              "1.434610e-02",
+              "2.244852e-01"
+            ],
+            "sy": [
+              "2.162751e-03",
+              "1.434610e-02",
+              "2.244852e-01"
+            ],
+            "sz": [
+              "2.533092e-03",
+              "1.679967e-02",
+              "2.593541e-01"
+            ],
+            "spc_1": [
+              "1.394994e-03",
+              "1.033916e-02",
+              "2.767325e-01"
+            ],
+            "spc_2": [
+              "7.154550e-13",
+              "2.960921e-12",
+              "5.619164e-11"
+            ],
+            "spc_3": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_4": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_5": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ]
+          },
+          "silo_sha256": "00dbafeba849b67de9bb864f1049e899095cff8e1d8dbe886716e75411cb57ab"
+        },
+        "fixed_star": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/star/star.ini",
+            "--disable_diagnostics=on",
+            "--monopole_host_kernel_type=LEGACY",
+            "--multipole_host_kernel_type=LEGACY",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY",
+            "--amr_boundary_kernel_type=AMR_LEGACY"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_star",
+          "returncode": 0,
+          "seconds": 95.68802598700859,
+          "log_sha256": "00218a6d549faafd0092ad851f2c1569c9a7da877b0a8e3bbf2dd7c52e5a6fbe",
+          "silo_sha256": "ce5be48fea85ec85eec405ae236ac2e14b86267ddecb887bd41014f6219d9d45",
+          "last_step": "TS 11:: t: 7.352407e+00, dt: 6.715320e-01, time_elapsed: 7.904836e+00, rotational_time: 7.352407e+00, x: -7.812500e-01, y: 7.812500e-01, z: -7.812500e-01, a: 9.307077e-01, ur: 1.680619e-02, ul: 1.680619e-02, vr: 6.075094e-02, vl: 6.075094e-02, dim: 1, ngrids: 201, leafs: 176, amr_boundaries: 312"
+        },
+        "fixed_backend_agreement": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy/final.silo.data/0.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_vc/final.silo.data/0.silo"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control",
+          "returncode": 0,
+          "seconds": 2.6884547129739076,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "build_old_dipole": {
+          "command": [
+            "cmake",
+            "--build",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build",
+            "--parallel",
+            "2",
+            "--target",
+            "octotiger"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes",
+          "returncode": 0,
+          "seconds": 11.979838786181062,
+          "log_sha256": "075a6a874b69285c73a8812c00cad776cb3288346d2c040fbcb8c547c5a0d2dc"
+        },
+        "old_legacy": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+            "--monopole_host_kernel_type=LEGACY",
+            "--multipole_host_kernel_type=LEGACY",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy",
+          "returncode": 0,
+          "seconds": 69.06303150393069,
+          "log_sha256": "d774c7e0e14495b061579d10130ff03835eba231ace8510345b1361471e8b060",
+          "norms": {
+            "rho": [
+              "3.173643e-05",
+              "2.000538e-04",
+              "5.694083e-03"
+            ],
+            "egas": [
+              "5.812879e-06",
+              "4.740067e-05",
+              "1.595715e-03"
+            ],
+            "tau": [
+              "1.377465e-05",
+              "8.244716e-05",
+              "2.035439e-03"
+            ],
+            "pot": [
+              "5.264233e-03",
+              "3.940785e-02",
+              "7.783497e-01"
+            ],
+            "sx": [
+              "7.396100e-06",
+              "6.126571e-05",
+              "3.376593e-03"
+            ],
+            "sy": [
+              "7.396592e-06",
+              "6.126777e-05",
+              "3.376693e-03"
+            ],
+            "sz": [
+              "5.153324e-06",
+              "6.025281e-05",
+              "3.590998e-03"
+            ],
+            "spc_1": [
+              "3.173643e-05",
+              "2.000538e-04",
+              "5.694083e-03"
+            ],
+            "spc_2": [
+              "7.825153e-13",
+              "3.102085e-12",
+              "5.175639e-11"
+            ],
+            "spc_3": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_4": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_5": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ]
+          },
+          "silo_sha256": "926632474af1ac62c12e9ce4f8aaa7b2e443ec91a41792bdeb4e321cd1685ddb",
+          "existing_norm_checks_pass": true
+        },
+        "old_legacy_wd": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/rotating_star/rotating_star.ini",
+            "--monopole_host_kernel_type=LEGACY",
+            "--multipole_host_kernel_type=LEGACY",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY",
+            "--eos=WD"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy_wd",
+          "returncode": 0,
+          "seconds": 72.95517009403557,
+          "log_sha256": "9797c0502a6feefe0cc53ac7dcf8636d8b6f7561ec26d4bfe1511cf3c1f7c3d6",
+          "norms": {
+            "rho": [
+              "1.394994e-03",
+              "1.033916e-02",
+              "2.767325e-01"
+            ],
+            "egas": [
+              "1.282620e-03",
+              "1.179462e-02",
+              "3.494375e-01"
+            ],
+            "tau": [
+              "6.103896e-04",
+              "4.523953e-03",
+              "1.210863e-01"
+            ],
+            "pot": [
+              "4.917759e-03",
+              "3.234269e-02",
+              "5.188656e-01"
+            ],
+            "sx": [
+              "2.162751e-03",
+              "1.434610e-02",
+              "2.244852e-01"
+            ],
+            "sy": [
+              "2.162751e-03",
+              "1.434610e-02",
+              "2.244852e-01"
+            ],
+            "sz": [
+              "2.533092e-03",
+              "1.679967e-02",
+              "2.593541e-01"
+            ],
+            "spc_1": [
+              "1.394994e-03",
+              "1.033916e-02",
+              "2.767325e-01"
+            ],
+            "spc_2": [
+              "7.157473e-13",
+              "2.961657e-12",
+              "5.619165e-11"
+            ],
+            "spc_3": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_4": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ],
+            "spc_5": [
+              "0.000000e+00",
+              "0.000000e+00",
+              "0.000000e+00"
+            ]
+          },
+          "silo_sha256": "550de133c2e83bf437221994299eafb9ce7cd067e6d7d2be9476465332a5b479",
+          "existing_norm_checks_pass": true
+        },
+        "old_star": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build/octotiger",
+            "--config_file=/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes/test_problems/star/star.ini",
+            "--disable_diagnostics=on",
+            "--monopole_host_kernel_type=LEGACY",
+            "--multipole_host_kernel_type=LEGACY",
+            "--monopole_device_kernel_type=OFF",
+            "--multipole_device_kernel_type=OFF",
+            "--hydro_device_kernel_type=OFF",
+            "--hydro_host_kernel_type=LEGACY",
+            "--amr_boundary_kernel_type=AMR_LEGACY"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star",
+          "returncode": 0,
+          "seconds": 94.3564825868234,
+          "log_sha256": "edb9e70a6f62b9a7670526098d337272799a3a2661e13b6d0a316bdb85ef6451",
+          "silo_sha256": "e3a35a8476528bbe39e8f5010c0e81c1460e760568baa7e8507d13e92553a898",
+          "last_step": "TS 11:: t: 7.352407e+00, dt: 6.715325e-01, time_elapsed: 7.870810e+00, rotational_time: 7.352407e+00, x: 2.343750e+00, y: 7.812500e-01, z: 7.812500e-01, a: 9.307070e-01, ur: 1.680614e-02, ul: 1.365091e-02, vr: 6.075061e-02, vl: 2.912973e-02, dim: 0, ngrids: 201, leafs: 176, amr_boundaries: 312",
+          "existing_step_checks_pass": true
+        },
+        "old_reference_reproduced": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/rotating_star_without_am.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy/final.silo.data/0.silo"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control",
+          "returncode": 0,
+          "seconds": 2.9280990690458566,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "old_star_reference_reproduced": {
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-11",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/star_with_eos_ipr.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star/final.silo.data/0.silo"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control",
+          "returncode": 0,
+          "seconds": 3.917087229900062,
+          "log_sha256": "e551a5442f42d5aaf53be7c8d4b113e104c52dc1f74b9acab184a40172a94d83"
+        },
+        "restore_fixed_build": {
+          "command": [
+            "cmake",
+            "--build",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build",
+            "--parallel",
+            "2"
+          ],
+          "cwd": "/home/dmarce1/workspace/octotiger/worktrees/fmm_fixes",
+          "returncode": 0,
+          "seconds": 12.173535123933107,
+          "log_sha256": "d4c1a48cc3824225bdbf84ee10bda6cd799599cbe7e63483c1da0b461517f749"
+        }
+      },
+      "comparisons": {
+        "fixed_backend_agreement": {
+          "passed": true,
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy/final.silo.data/0.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_vc/final.silo.data/0.silo"
+          ]
+        },
+        "old_reference_reproduced": {
+          "passed": true,
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-12",
+            "-E",
+            "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/rotating_star_without_am.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_legacy/final.silo.data/0.silo"
+          ]
+        },
+        "old_star_reference_reproduced": {
+          "passed": true,
+          "command": [
+            "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+            "-e",
+            "diff",
+            "-q",
+            "-x",
+            "1.0",
+            "-R",
+            "1.0e-11",
+            "-E",
+            "idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+            "/home/dmarce1/workspace/octotiger/output/scf_fix_validation_20261123/full_suite/testdata/star_with_eos_ipr.silo",
+            "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/old_star/final.silo.data/0.silo"
+          ]
+        }
+      },
+      "initial_sha256": "59d8c78665b048a5cbb759636d5f9918d38d1c3a946acbe8941f51f7f2d90bfc",
+      "fixed_executable_sha256": "c944b240b212cac42f3b32400b30c7f701090df7bb9076ed84e6008274b47f74",
+      "fixed_octolib_sha256": "dbf10337eb641069393bab8fa26a74f42463edc8a7c41071c2dc35ee4418dfc2",
+      "old_dipole_patch_sha256": "f47af462d3e9b1d28470e993bfdfeb64c7cd7567e5afd836411e909d23b2df41",
+      "old_dipole_octolib_sha256": "ebdea70177f40b086efc48669c7e3f582ed5e8f87e294e2b9d7bb36440f857e7",
+      "source_restored_clean": true,
+      "restored_octolib_sha256": "dbf10337eb641069393bab8fa26a74f42463edc8a7c41071c2dc35ee4418dfc2"
+    }
+  },
+  "fixed_vc_legacy_agreement": {
+    "all_12_printed_norms_equal": true,
+    "silo_comparison": {
+      "passed": true,
+      "command": [
+        "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+        "-e",
+        "diff",
+        "-q",
+        "-x",
+        "1.0",
+        "-R",
+        "1.0e-12",
+        "-E",
+        "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+        "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy/final.silo.data/0.silo",
+        "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_vc/final.silo.data/0.silo"
+      ],
+      "run": {
+        "command": [
+          "/home/dmarce1/workspace/octotiger/hpx2rcDependencies/install/common/bin/browser",
+          "-e",
+          "diff",
+          "-q",
+          "-x",
+          "1.0",
+          "-R",
+          "1.0e-12",
+          "-E",
+          "lx,ly,lz,idle_rate,locality,/_hdf5libinfo,/_silolibinfo",
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_legacy/final.silo.data/0.silo",
+          "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_vc/final.silo.data/0.silo"
+        ],
+        "cwd": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control",
+        "returncode": 0,
+        "seconds": 2.6884547129739076,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "log": {
+          "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/reference_control/fixed_backend_agreement.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      },
+      "failure_pattern": "[.]vals|appears only in file"
+    },
+    "scope": "Non-WD rotating star; stated SILO tolerances/exclusions, not byte equality."
+  },
+  "final_affected_ctest": {
+    "artifact": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/affected.json",
+      "sha256": "de967c37b3252e260608b8f1bdb1727dcc19f4821d5e5e918c24e5cc70c13f7a",
+      "bytes": 1389
+    },
+    "receipt": {
+      "command": [
+        "ctest",
+        "--test-dir",
+        "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/build",
+        "--parallel",
+        "1",
+        "--output-on-failure",
+        "--output-junit",
+        "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/affected.xml",
+        "-R",
+        "^(fmm[.]|wdeos_sound_speed$|test_problems[.]rotating_star|test_problems[.]cpu[.](eos_wd[.])?rotating_star|test_problems[.]cpu[.]star[.]|test_problems[.](cpu[.])?wd_equilibrium)"
+      ],
+      "returncode": 0,
+      "seconds": 608.6402866330463,
+      "tests": 112,
+      "passed": 112,
+      "failed": [],
+      "skipped": [],
+      "source_commit": "f274acf3339c2b81846b85ac58663cebf40c07d6",
+      "source_patch_sha256": "d3f8e89817f6262a23af8016b092dbc77e329c4af88998ea0b8f176c8ca0f77f",
+      "cpus": [
+        14,
+        15
+      ],
+      "executable_sha256": "34f1d90969cf13dc8289509f97d127ad6fab313f311c960334e4e0a8cdef37b8",
+      "octolib_sha256": "dbf10337eb641069393bab8fa26a74f42463edc8a7c41071c2dc35ee4418dfc2",
+      "reference_sha256": {
+        "rotating_star_without_am.silo": "2be3bea98450f3ed90f6f5075c6d2c7eff5faa67c46c3d67a961093446f3aef4",
+        "star_with_eos_ipr.silo": "ce5be48fea85ec85eec405ae236ac2e14b86267ddecb887bd41014f6219d9d45",
+        "wd_equilibrium_1msun_grid8.silo": "c2479bd3ead82f5a29c790509ecc635612b5ce87627b46e244a0264810dde885"
+      },
+      "xml": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/affected.xml"
+    },
+    "xml_artifact": {
+      "path": "/home/dmarce1/workspace/octotiger/output/fmm_fixes_validation/affected.xml",
+      "sha256": "42f06564771ce4fe88993ff1484e4a65eec1734bc036b40912a34ed643a98e4c",
+      "bytes": 123057
+    },
+    "required_passed_cases": [
+      "fmm.device_only_fallback",
+      "fmm.stencil_default",
+      "fmm.stencil_even_width",
+      "fmm.stencil_large_even_width",
+      "fmm.root_leaf",
+      "fmm.root_leaf_device_only",
+      "fmm.dipole",
+      "fmm.legacy_dipole",
+      "test_problems.cpu.wd_equilibrium.legacy",
+      "test_problems.cpu.wd_equilibrium.legacy.diff",
+      "test_problems.cpu.wd_equilibrium.legacy.physics",
+      "test_problems.cpu.star.eos_ipr.legacy",
+      "test_problems.cpu.star.eos_ipr.legacy.diff",
+      "test_problems.cpu.rotating_star_vc",
+      "test_problems.cpu.rotating_star_vc.diff",
+      "test_problems.cpu.rotating_star_legacy",
+      "test_problems.cpu.rotating_star_legacy.diff",
+      "test_problems.cpu.rotating_star_kokkos",
+      "test_problems.cpu.rotating_star_kokkos.diff"
+    ],
+    "all_passed_cases": [
+      "fmm.device_only_fallback",
+      "fmm.dipole",
+      "fmm.legacy_dipole",
+      "fmm.root_leaf",
+      "fmm.root_leaf_device_only",
+      "fmm.stencil_default",
+      "fmm.stencil_even_width",
+      "fmm.stencil_large_even_width",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.egas_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.fixture_cleanup",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.pot_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.rho_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.spc1_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.spc2_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.spc3_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.spc4_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.spc5_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.sx_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.sy_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.sz_regex",
+      "test_problems.cpu.eos_wd.rotating_star_kokkos.tau_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.egas_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.fixture_cleanup",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.pot_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.rho_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.spc1_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.spc2_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.spc3_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.spc4_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.spc5_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.sx_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.sy_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.sz_regex",
+      "test_problems.cpu.eos_wd.rotating_star_legacy.tau_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc",
+      "test_problems.cpu.eos_wd.rotating_star_vc.egas_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.fixture_cleanup",
+      "test_problems.cpu.eos_wd.rotating_star_vc.pot_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.rho_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.spc1_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.spc2_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.spc3_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.spc4_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.spc5_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.sx_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.sy_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.sz_regex",
+      "test_problems.cpu.eos_wd.rotating_star_vc.tau_regex",
+      "test_problems.cpu.rotating_star_kokkos",
+      "test_problems.cpu.rotating_star_kokkos.diff",
+      "test_problems.cpu.rotating_star_kokkos.egas_regex",
+      "test_problems.cpu.rotating_star_kokkos.fixture_cleanup",
+      "test_problems.cpu.rotating_star_kokkos.pot_regex",
+      "test_problems.cpu.rotating_star_kokkos.rho_regex",
+      "test_problems.cpu.rotating_star_kokkos.spc1_regex",
+      "test_problems.cpu.rotating_star_kokkos.spc2_regex",
+      "test_problems.cpu.rotating_star_kokkos.spc3_regex",
+      "test_problems.cpu.rotating_star_kokkos.spc4_regex",
+      "test_problems.cpu.rotating_star_kokkos.spc5_regex",
+      "test_problems.cpu.rotating_star_kokkos.sx_regex",
+      "test_problems.cpu.rotating_star_kokkos.sy_regex",
+      "test_problems.cpu.rotating_star_kokkos.sz_regex",
+      "test_problems.cpu.rotating_star_kokkos.tau_regex",
+      "test_problems.cpu.rotating_star_legacy",
+      "test_problems.cpu.rotating_star_legacy.diff",
+      "test_problems.cpu.rotating_star_legacy.egas_regex",
+      "test_problems.cpu.rotating_star_legacy.fixture_cleanup",
+      "test_problems.cpu.rotating_star_legacy.pot_regex",
+      "test_problems.cpu.rotating_star_legacy.rho_regex",
+      "test_problems.cpu.rotating_star_legacy.spc1_regex",
+      "test_problems.cpu.rotating_star_legacy.spc2_regex",
+      "test_problems.cpu.rotating_star_legacy.spc3_regex",
+      "test_problems.cpu.rotating_star_legacy.spc4_regex",
+      "test_problems.cpu.rotating_star_legacy.spc5_regex",
+      "test_problems.cpu.rotating_star_legacy.sx_regex",
+      "test_problems.cpu.rotating_star_legacy.sy_regex",
+      "test_problems.cpu.rotating_star_legacy.sz_regex",
+      "test_problems.cpu.rotating_star_legacy.tau_regex",
+      "test_problems.cpu.rotating_star_vc",
+      "test_problems.cpu.rotating_star_vc.diff",
+      "test_problems.cpu.rotating_star_vc.egas_regex",
+      "test_problems.cpu.rotating_star_vc.fixture_cleanup",
+      "test_problems.cpu.rotating_star_vc.pot_regex",
+      "test_problems.cpu.rotating_star_vc.rho_regex",
+      "test_problems.cpu.rotating_star_vc.spc1_regex",
+      "test_problems.cpu.rotating_star_vc.spc2_regex",
+      "test_problems.cpu.rotating_star_vc.spc3_regex",
+      "test_problems.cpu.rotating_star_vc.spc4_regex",
+      "test_problems.cpu.rotating_star_vc.spc5_regex",
+      "test_problems.cpu.rotating_star_vc.sx_regex",
+      "test_problems.cpu.rotating_star_vc.sy_regex",
+      "test_problems.cpu.rotating_star_vc.sz_regex",
+      "test_problems.cpu.rotating_star_vc.tau_regex",
+      "test_problems.cpu.star.eos_ipr.legacy",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_a_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_boundaries_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_dt_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_ul_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_ur_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_vl_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.TS11_vr_regex",
+      "test_problems.cpu.star.eos_ipr.legacy.diff",
+      "test_problems.cpu.star.eos_ipr.legacy.fixture_cleanup",
+      "test_problems.cpu.wd_equilibrium.legacy",
+      "test_problems.cpu.wd_equilibrium.legacy.diff",
+      "test_problems.cpu.wd_equilibrium.legacy.physics",
+      "test_problems.rotating_star.init",
+      "test_problems.rotating_star.init.fixture_cleanup",
+      "test_problems.wd_equilibrium.model",
+      "wdeos_sound_speed"
+    ]
+  },
+  "validation_status": "final_affected_ctest_passed",
+  "limitations": [
+    "CPU-only grid8, one locality and two HPX workers.",
+    "No GPU, INX16, distributed, or QB qualification.",
+    "No performance or long-term stability claim.",
+    "SILO agreement uses each recorded comparison's tolerance, exclusions, and failure pattern.",
+    "Star time metadata differences are outside its existing field-specific failure pattern."
+  ]
+}
